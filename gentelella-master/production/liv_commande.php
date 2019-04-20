@@ -422,7 +422,7 @@ include "D:/wamp64/www/Projet_integre/core/bonC.php";
                             <?php
                             $livreur1C=new livreurC();
                 $listeLivreurs=$livreur1C->afficherLivreur();
-
+$np=$c['nom']." ".$c['prenom'];
 
                   foreach($listeLivreurs as $row){
 
@@ -442,7 +442,7 @@ include "D:/wamp64/www/Projet_integre/core/bonC.php";
                           </td>
                           <td><a href="supprimer_bon.php?cin=<?PHP echo $c['ciin']; ?> " class="btn btn-danger">
                         Supprimer</a></td>
-
+<td><a href='imprime_bon.php?cin=<?php echo $c['cin']; ?>&idc=<?php echo $c['id_c']; ?>&date=<?php echo $c['date_remise']; ?>&zone=<?php echo $c['zone']; ?>&adresse=<?php echo $c['adresse']; ?>&nomprenom=<?php echo $np; ?> '><button class="btn btn-success">Imprimer</button></a></td>
                         </tr>
 
                       <?php

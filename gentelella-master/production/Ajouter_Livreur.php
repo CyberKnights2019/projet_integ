@@ -12,10 +12,10 @@ if (strlen($_POST['cinL'])!=8)
 echo "CIN invalide";
 else
 {
-
   $livreur1=new livreur($_POST['cinL'],$_POST['nomL'],$_POST['prenomL'],$_POST['telL'],$_POST['mailL'],$_POST['adresseL'],"");
   $livreur1C=new livreurC();
   $livreur1C->ajouterLivreur($livreur1);
+
 
 //Pour l'ajout d'une image
   $link=mysqli_connect("127.0.0.1","root","","projet");
