@@ -1,0 +1,4 @@
+(function($)
+{
+	alert('ef');
+})(JQuery);
