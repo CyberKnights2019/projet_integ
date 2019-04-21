@@ -1,4 +1,4 @@
-﻿<?php 
+﻿<?php
  session_start();
 require 'header.php';
 
@@ -17,51 +17,101 @@ require 'header.php';
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12">
-           
+
           </div>
         </div>
         <div class="row">
-          
+
             <form class="col-md-12" method="post" action="ajoutCmd.php">
             <div class="row mb-5">
               <div class="col-md-12">
                 <h2 class="h3 mb-3 text-black">Your Order</h2>
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
-                    <thead>
+                        <thead>
 
-                      <th>Product</th>
-                      <th>Total</th>
-                    </thead>
-                    <tbody>
+                          <th>Product</th>
+                          <th>Total</th>
+                        </thead>
+                        <tbody>
 
-                       <?php 
-                         $panier=new PanierC();
+                           <?php
+                             $panier=new PanierC();
 
-                        $listeproduits  =$panier->afficherProduits();
-                        $total=$panier->Total();
-                        $_SESSION['total']=$total;
-               
-                        foreach ($listeproduits as $p ) { 
+                            $listeproduits  =$panier->afficherProduits();
+
+                   $totalF=0;
+                   $totalD=$panier->Total();
+                            foreach ($listeproduits as $p ) {
+                               $total=$panier->Total();
+
+                            /*
+                            if($p['QTE']>=500 && $p['prix']*$p['QTE']>=5000 ){
+                                $total=$total-($total*50)/100;
 
 
-                ?>  
+                            }
 
-                      <tr>
-                        <td><?php echo $p['nom']; ?><strong class="mx-2">X</strong><?php echo $p['QTE'];?></td>
-                               <td><?php echo $p['prix']*$p['QTE']; ?> DT</td>
+                             if($p['QTE']>=500 && $p['prix']*$p['QTE']<5000 ){
+                              $total=$total-($total*20)/100;
 
-                      </tr>
-                    <?php
-                  }
-                  ?>
-                     
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong><?php echo $total;?></strong> DT</td>
-                      </tr>
-                    </tbody>
-                  </table>
+
+                            }
+
+                             if($p['QTE']<500 && $p['prix']*$p['QTE']>=5000 ){
+                              $total=$total-($total*20)/100;
+
+
+                            }*/
+
+                            $_SESSION['total']=$total;
+
+
+                    ?>
+
+                          <tr>
+                          <?php if($p['QTE']>=500 && $p['prix']*$p['QTE']>=5000 ){    ?>
+                            <td><?php echo $p['prix']*$p['QTE']-($p['prix']*$p['QTE']*50)/100; ?> DT <p>Remise Special<small> -50%</small></p></td>
+                            <?php $total=$total-($p['prix']*$p['QTE']*50)/100 ?>
+
+                            <?php $totalF+=$total;
+                          }?>
+
+                          <?php if($p['QTE']>=500 && $p['prix']*$p['QTE']<5000 ){    ?>
+                            <td><?php echo $p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100; ?> DT<p>Remise Sur Quantite <small> -20%</small></p></td>
+                            <?php $total=$total-($p['prix']*$p['QTE']*20)/100 ?>
+
+                            <?php $totalF+=$total;
+                          }?>
+
+                          <?php if($p['QTE']<500 && $p['prix']*$p['QTE']>=5000 ){    ?>
+                            <td><?php echo $p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100; ?> DT<p>Remise sur Prix<small> -20%</small></p></td>
+                            <?php $total=$total-($p['prix']*$p['QTE']*20)/100 ?>
+
+                            <?php $totalF+=$total;
+                          }?>
+
+                          <?php if($p['QTE']<500 && $p['prix']*$p['QTE']<5000 ){    ?>
+                            <td><?php echo $p['prix']*$p['QTE']; ?> DT</td>
+                            <?php
+                          }?>
+
+                          </tr>
+                        <?php
+                      }
+                      ?>
+
+                          <tr>
+                            <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+                            <?php if($totalF==0){$_SESSION['total']=$totalD; ?>
+                              <td class="text-black font-weight-bold"><strong><?php echo $totalD;?> DT </td>
+                            <?php }else{$_SESSION['total']=$totalF;?>
+                             <td class="text-black font-weight-bold"><strong><strike><?php echo $totalD;?> DT </strike><br><?php echo $totalF?></strong> DT</td>
+                            <?php }?>
+
+                          </tr>
+                        </tbody>
+                      </table>
 
                   <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Livraison</h3>
@@ -77,16 +127,16 @@ require 'header.php';
          <div class="form-group">
                 <label style="display:none" id="zonecHH" for="c_country" class="text-black">Zone <span class="text-danger">*</span></label>
                 <select name="zoneCH" id="c_country" class="form-control" style="display:none" >
-                  <option value="Ariana">Ariana</option>    
-                  <option value="Grand Tunis">Grand Tunis</option>    
-                  <option value="Bizerte">Bizerte</option>    
-                  <option value="Nabeul">Nabeul</option>    
-                  <option value="Sousse">Sousse</option>    
-                  <option value="Mahdia">Mahdia</option>    
-                  <option value="Kerkennah">Kerkennah</option>    
-                  <option value="Grombalia">Grombalia</option>    
+                  <option value="Ariana">Ariana</option>
+                  <option value="Grand Tunis">Grand Tunis</option>
+                  <option value="Bizerte">Bizerte</option>
+                  <option value="Nabeul">Nabeul</option>
+                  <option value="Sousse">Sousse</option>
+                  <option value="Mahdia">Mahdia</option>
+                  <option value="Kerkennah">Kerkennah</option>
+                  <option value="Grombalia">Grombalia</option>
                   <option value="Autre">Autre</option>
-                  
+
 
                 </select>
               </div>
@@ -105,11 +155,11 @@ require 'header.php';
                 <label for="s_md" class="d-flex">
                   <input type="radio" name="Payment" value="Espèce" id="s_md" class="mr-2 mt-1"> <span class="text-black">Espèce</span>
                 </label>
-                
+
                  </div>
 
 
-                  
+
 
                   <div class="form-group">
                     <button type ="submit" class="btn btn-primary btn-lg py-3 btn-block">Place Order</button>
@@ -125,7 +175,7 @@ require 'header.php';
       </div>
     </div>
 
-<script> 
+<script>
 
   function myFunction() {
   // Get the checkbox

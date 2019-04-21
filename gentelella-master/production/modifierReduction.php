@@ -2,27 +2,29 @@
 include "D:/wamp64/www/Projet_integre/entities/reduction.php";
 include "D:/wamp64/www/Projet_integre/core/reductionF.php";
 
-if(isset($_POST['idProduit']) and isset($_POST['tauxReduction']) and isset($_POST['dateDebut']) and isset($_POST['dateFin']) )
-{
+$reductionF= new reductionF();
+
+
+//var_dump($_POST);
+if( isset($_POST['idReduction']) and isset($_POST['idProduit']) and isset($_POST['tauxReduction']) and isset($_POST['dateDebut']) and isset($_POST['dateFin'])){
+
 
 
       $idProduit=$_POST['idProduit'];
        $tauxReduction=$_POST['tauxReduction'];
         $dateDebut=$_POST['dateDebut'];
          $dateFin=$_POST['dateFin'];
-
-         $reduction = new Reduction($idProduit,$tauxReduction,$dateDebut,$dateFin);
-         $reductionF= new ReductionF();
-         $reductionF->ajouterreduction($reduction);
-     header('Location: AfficherReduction.php');
-  
+         $reduction = new reduction($idProduit,$tauxReduction,$dateDebut,$dateFin);
+         $reductionF->modifierreduction($reduction,$_POST['idReduction']);
+               header('Location: AfficherReduction.php');
 
 }
 
 
 ?>
-
-
+<?php
+include "D:/wamp64/www/Projet_integre/core/livreurC.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -296,17 +298,23 @@ align:center;
                        </div>
                        <div class="x_content">
 
-                         <form method="post" action="ajoutReduction.php" class="form-horizontal form-label-left" >
+                         <form method="post" action="modifierReduction.php" class="form-horizontal form-label-left" novalidate>
 
                            <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
                            </p>
-                           <span class="section">ajouter produit </span>
-
+                           <span class="section">modifier Reduction  </span>
+                           <div class="item form-group">
+                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idReduction">idReduction <span class="required">*</span>
+                             </label>
+                             <div class="col-md-6 col-sm-6 col-xs-12">
+                               <input type="text"  id="idReduction" value="150" name="idReduction" required="required" class="form-control col-md-7 col-xs-12">
+                             </div>
+                           </div>
                            <div class="item form-group">
                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="idProduit">idProduit <span class="required">*</span>
                              </label>
                              <div class="col-md-6 col-sm-6 col-xs-12">
-                               <input id="idProduit" name="idProduit" class="form-control col-md-7 col-xs-12"   placeholder="" required type="text">
+                               <input id="idProduit" name="idProduit" class="form-control col-md-7 col-xs-12"   placeholder="" required="required" type="text">
                              </div>
                            </div>
                            <div class="item form-group">
@@ -333,7 +341,7 @@ align:center;
                            </div>
 
                                <button type="submit" class="btn btn-primary">Cancel</button>
-                               <button id="ajouter" name="ajouter" type="submit" class="btn btn-success">Submit</button>
+                               <button id="modifier" name="modifier" type="submit" class="btn btn-success">Submit</button>
 
 
                          </form>
