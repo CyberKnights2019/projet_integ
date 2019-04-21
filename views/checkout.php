@@ -66,7 +66,7 @@ require 'header.php';
                   <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Livraison</h3>
                 <label for="s_sm" class="d-flex">
-                  <input  type="radio"  onclick="myFunction()" name="livraison" value="Boutique" id="s_sm" class="mr-2 mt-1" > <span class="text-black">Boutique</span>
+                  <input  type="radio"  onclick="myFunction()" name="livraison" value="Boutique" checked id="s_sm" class="mr-2 mt-1" > <span class="text-black">Boutique</span>
                 </label>
                 <label for="s_md" class="d-flex">
                   <input type="radio" name="livraison" value="Livraison à domicile" id="s_md" class="mr-2 mt-1" onclick="myFunction()"> <span class="text-black">Livraison à domicile</span>
