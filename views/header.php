@@ -50,6 +50,11 @@ $count=$pa->Count();
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
+                    <li>
+                        <a href="NadaClient/inscription.php">
+                            <span class="icon icon-user-o" ></span>
+                        </a>
+                    </li>
                   <li><a href="HisCmd.php"><span class="icon icon-person"></span></a></li>
                   <li><a href="tables_dynamic.php"><span class="icon icon-heart-o"></span></a></li>
                   <li>
@@ -93,7 +98,15 @@ $count=$pa->Count();
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li class="active"><a href="shop.php">Shop</a></li>
+              <li class="has-children">
+                  <a href="">shop</a>
+                  <ul class="dropdown">
+                      <li><a href="shopheni.php">shopheni</a></li>
+                      <li><a href="shop.php">shopfadhel</a></li>
+                      <li><a href="#">Menu Three</a></li>
+                  </ul>
+              </li>
+
             <li><a href="#">Catalogue</a></li>
             <li><a href="#">New Arrivals</a></li>
             <li><a href="contact.html">Contact</a></li>

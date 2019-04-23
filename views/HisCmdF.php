@@ -1,5 +1,4 @@
 <?PHP
- session_start();
 
 include "D:/wamp64/www/Projet_integre/core/CommandeC.php";
 

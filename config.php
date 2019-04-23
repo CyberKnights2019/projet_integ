@@ -1,6 +1,7 @@
 <?php
   class config {
     private static $instance = NULL;
+      protected $connection;
 
     public static function getConnexion() {
       if (!isset(self::$instance)) {
@@ -13,5 +14,6 @@
       }
       return self::$instance;
     }
+
   }
 ?>

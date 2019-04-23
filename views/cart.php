@@ -3,20 +3,36 @@
 
 require 'header.php';
 
+if ($_SESSION['qteCheck']!="false" && $_SESSION['qteCheck']!="true")
+{
+  $_SESSION['qteCheck']="1";
+}
+
 $_SESSION['Cart']=1;
 $_SESSION['singleShop']=0;
               $panier=new PanierC();
 
               $listeproduits  =$panier->afficherProduits();
               $total=$panier->Total();
-              foreach ($listeproduits as $p ) { 
+              foreach ($listeproduits as $p ) {
 
  if(isset($_POST['qte'.$p['ID_PRO']]))
                           {
                             if($_POST['qte'.$p['ID_PRO']]>0)
                             {
+                              $panier1=new Panier($p['ID_PRO'],$_POST['qte'.$p['ID_PRO']],0);
+                              $panier1C=new PanierC();
+                              if($panier1C->CheckQte($panier1)==true)
+                              {
+                                 $panier->updateQte($p['ID_PRO'],$_POST['qte'.$p['ID_PRO']]);
+                                  $_SESSION['qteCheck']="true";
+                              }
+                              else {
+                                $_SESSION['qteCheck']="false";
                               
-                             $panier->updateQte($p['ID_PRO'],$_POST['qte'.$p['ID_PRO']]);
+                              }
+
+
                             }
 
                            }
@@ -49,20 +65,56 @@ $_SESSION['singleShop']=0;
                   </tr>
                 </thead>
                 <tbody>
-                       <?php 
+                       <?php
              $panier=new PanierC();
 
               $listeproduits  =$panier->afficherProduits();
               $total=$panier->Total();
-               
-              foreach ($listeproduits as $p ) { 
+
+              foreach ($listeproduits as $p ) {
+
+                if(isset($_POST['qte'.$p['ID_PRO']]))
+                                         {
+                                           if($_POST['qte'.$p['ID_PRO']]>0)
+                                           {
+                                             $panier1=new Panier($p['ID_PRO'],$_POST['qte'.$p['ID_PRO']],0);
+                                             $panier1C=new PanierC();
+                                             if($panier1C->CheckQte($panier1)==true)
+                                             {
+                                                $panier->updateQte($p['ID_PRO'],$_POST['qte'.$p['ID_PRO']]);
+                                                 $_SESSION['qteCheck']="true";
+                                             }
+                                             else {
+                                               $_SESSION['qteCheck']="false";
+                                             //  break;
+                                             }
+
+
+                                           }
+
+                                          }
+
+
 
 
                 ?>
                   <tr>
-                    
+
                     <td class="product-thumbnail">
-                      <img src="<?php echo $p['ID_PRO']; ?>.jpg" alt="Image" class="img-fluid">
+                      <!-- <img src="<?php// echo $p['ID_PRO']; ?>.jpg" alt="Image" class="img-fluid"> -->
+                      <figure class="block-4-image">
+                          <a><div class="zoom"><?php
+                              $id =$p['ID_PRO'];
+                              $db = mysqli_connect("localhost","root","","projet"); //keep your db name
+                              $sql = "SELECT * FROM produit where id =$id ";
+                              $sth = $db->query($sql);
+                              $result=mysqli_fetch_array($sth);
+                              echo '<img width="150" height="150" src="data:image/jpeg;base64,'.base64_encode( $p['image'] ).'"/>';
+                              ?></a>
+                            </figure>
+
+
+
                     </td>
                     <td class="product-name">
                       <h2 class="h5 text-black"><?php echo $p['nom']; ?></h2>
@@ -79,9 +131,21 @@ $_SESSION['singleShop']=0;
                         </div>
                       </div>
 
+                      <?php
+                      if($_SESSION['qteCheck']=="false")
+                      {
+                      echo'<p style ="color : red"><strong>*Quantite indisponible ! </strong></p>';
+                      $_SESSION['qteCheck']="true";
+                    }
+                     ?>
+
+
+
+
                     </td>
                     <td><?php echo $p['prix']*$p['QTE']; ?> DT</td>
                     <td><a href="cart.php?del=<?php echo $p['ID_PRO']; ?>" class="btn btn-primary btn-sm">X</a></td>
+
                   </tr>
                      <?php
                        }
@@ -89,14 +153,24 @@ $_SESSION['singleShop']=0;
                 </tbody>
               </table>
             </div>
-          
+
         </div>
-     
-        
+
+
         <div class="row">
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
+                <div>
+
+                  <?php
+                  if($_SESSION['qteCheck']=="false")
+                  {
+                  echo'<p style ="color : red"><strong>*Quantite indisponible ! </strong></p>';
+                  $_SESSION['qteCheck']="true";
+                }
+                 ?>
+                </div>
                 <button type="submit" class="btn btn-primary btn-sm btn-block">Update Cart</button>
 </form>
               </div>
@@ -116,7 +190,7 @@ $_SESSION['singleShop']=0;
               </div>
             </div>
           </div>
-           
+
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
               <div class="col-md-7">
@@ -125,7 +199,7 @@ $_SESSION['singleShop']=0;
                     <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                   </div>
                 </div>
-               
+
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
@@ -137,14 +211,14 @@ $_SESSION['singleShop']=0;
 
                 <div class="row">
                   <div class="col-md-12">
-                    <?php 
+                    <?php
                     if($total > 0)
                     {
                       ?>
                       <button class="btn btn-primary btn-lg py-3 btn-block"  onclick="window.location='checkout.php'">Proceed To Checkout</button>
-                   <?php 
+                   <?php
                     }
-                    
+
                     ?>
                   </div>
                 </div>

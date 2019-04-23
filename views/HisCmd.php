@@ -1,5 +1,7 @@
-<?php require 'header.php';
- session_start();
+<?php
+session_start();
+require 'header.php';
+
 
 if(isset($_GET['id']))
 {
@@ -34,8 +36,8 @@ else {$idC =-1;}
                   </tr>
                 </thead>
                 <tbody>
-                  
-				<?php 
+
+				<?php
              $cmd=new CommandeC();
 
              if(isset($_SESSION['trie']) && $_SESSION['trie']==1)
@@ -43,14 +45,14 @@ else {$idC =-1;}
               $liste  =$cmd->afficherCommandeTrie();
              }
              else { $liste  =$cmd->afficherCommande(); }
-              
-               
-              foreach ($liste as $c ) { 
+
+
+              foreach ($liste as $c ) {
 
 
                 ?>
                   <tr>
-                    
+
                     <td class="product-name">
                       <h2 class="h5 text-black"><?php echo $c['ID_C']; ?></h2>
                     </td>
@@ -75,7 +77,7 @@ else {$idC =-1;}
               <br>
                       <input type="submit" class="buy-now btn btn-sm btn-primary" value="Recherche" name="rech">
                       <input type="submit" name="Tri" class="buy-now btn btn-sm btn-primary" value="Trier">
-                      
+
           </form>
         </div>
 
@@ -89,35 +91,44 @@ else {$idC =-1;}
                     <th class="product-price">Price</th>
                     <th class="product-quantity">Quantity</th>
                     <th class="product-total">Total</th>
-                    
+
                   </tr>
                 </thead>
                 <tbody>
-                       <?php 
+                       <?php
              $panier=new PanierC();
 
               $listeproduits  =$panier->afficherPaniers($idC);
-              
-               
-              foreach ($listeproduits as $p ) { 
+
+
+              foreach ($listeproduits as $p ) {
 
 
                 ?>
                   <tr>
-                    
+
                     <td class="product-thumbnail">
-                      <img src="<?php echo $p['ID_PRO']; ?>.jpg" alt="Image" class="img-fluid">
+                    <!--  <img src="<?php// echo $p['ID_PRO']; ?>.jpg" alt="Image" class="img-fluid"> -->
+                    <a><div class="zoom"><?php
+                        $id =$p['ID_PRO'];
+                        $db = mysqli_connect("localhost","root","","projet"); //keep your db name
+                        $sql = "SELECT * FROM produit where id =$id ";
+                        $sth = $db->query($sql);
+                        $result=mysqli_fetch_array($sth);
+                        echo '<img alt="Image" class="img-fluid" src="data:image/jpeg;base64,'.base64_encode( $p['image'] ).'"/>';
+                        ?></a>
+                       </div>
                     </td>
                     <td class="product-name">
                       <h2 class="h5 text-black"><?php echo $p['nom']; ?></h2>
                     </td>
                     <td><?php echo $p['prix']; ?> DT</td>
                     <td>
-                        <?php echo $p['QTE']; ?>                  
+                        <?php echo $p['QTE']; ?>
                     </td>
 
                     <td><?php echo $p['prix']*$p['QTE']; ?> DT</td>
-                    
+
                   </tr>
                      <?php
                        }
@@ -126,10 +137,10 @@ else {$idC =-1;}
               </table>
                </div>
               </div>
-             
 
 
-        
+
+
 
 
 <?php require 'footer.php';?>

@@ -1,11 +1,11 @@
-<?php 
+<?php
  session_start();
 
 require 'header.php';
 if(isset($_GET['id']))
 {
   $id=$_GET['id'];
- $produit=new Produit();
+ $produit=new Produitt();
  $prod=$produit->afficherProd($id);
  $_SESSION['id_pro'] = $id;
  $_SESSION['Cart']=0;
@@ -22,7 +22,7 @@ $_SESSION['singleShop']=1;
             <?php foreach ($prod as $p ) {  ?>
 
           <div class="col-md-6">
-            <img src="<?php echo $p['ID_PRO']; ?>.jpg" alt="Image" class="img-fluid">
+          <!--   <img src="<?php echo $p['ID_PRO']; ?>.jpg" alt="Image" class="img-fluid"> -->
           </div>
           <div class="col-md-6">
             <h2 class="text-black"><?php echo $p['nom']; ?></h2>
@@ -30,7 +30,7 @@ $_SESSION['singleShop']=1;
             <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
             <p><strong class="text-primary h4"><?php echo $p['prix']; ?> DT</strong></p>
             <div class="mb-1 d-flex">
-             
+
            <?php
             }
             ?>
@@ -48,12 +48,12 @@ $_SESSION['singleShop']=1;
               </div>
 
             </div>
-                   <input  type="submit" class="buy-now btn btn-sm btn-primary"   name="ajouter" value="Ajouter" > 
+                   <input  type="submit" class="buy-now btn btn-sm btn-primary"   name="ajouter" value="Ajouter" >
 
             </div>
 
                 <p><a href="shop.php" class="buy-now btn btn-sm btn-primary">Shop</a></p>
-    
+
             </form>
           </div>
         </div>

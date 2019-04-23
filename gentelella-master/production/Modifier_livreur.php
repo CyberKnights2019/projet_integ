@@ -57,52 +57,9 @@
             <!-- /menu profile quick info -->
 
             <br />
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-
-                  <li>
-                    <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-
-                      <li><a href=#>Sous-Menu</a></li>
-
-
-                    </ul>
-
-</li>
-<li>
-                    <a><i class="fa fa-table"></i> Commande <span class="fa fa-chevron-down"></span></a>
-
-                    <ul class="nav child_menu">
-
-                      <li><a href="tables_dynamic.php">Liste De Commande</a></li>
-
-
-                    </ul>
-</li>
-
-<li>
-                    <a><i class="fa fa-automobile"></i> Livraison <span class="fa fa-chevron-down"></span></a>
-
-                    <ul class="nav child_menu">
-
-                      <li><a href="Ajout_Livreur.html">Ajout d'un livreur</a></li>
-                      <li><a href="Afficher_livreur.php">Gestion de livreurs</a></li>
-<li><a href="liv_commande.php">Gestion de bons de livraison</a></li>
-<li><a href="stat_bon.php">Statistiques</a></li>
-
-                    </ul>
-</li>
-
-                </ul>
-              </div>
-
-
-            </div>
-            <!-- /sidebar menu -->
+              <?php
+              include_once "D:/wamp64/www/projet_integre/gentelella-master/production/Product/headerfinal.php"
+              ?>
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">

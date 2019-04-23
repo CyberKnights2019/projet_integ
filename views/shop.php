@@ -48,7 +48,7 @@ require 'header.php';
             <div class="row mb-5">
 
               <?php 
-              $produit=new Produit();
+              $produit=new Produitt();
               $listeproduits  =$produit->afficherProduits();
               
                

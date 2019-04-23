@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Statistique sur les zones de livraison</title>
+    <title>MOUSSA OPTIC DASHBOARD</title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -54,70 +54,10 @@
 
             <br />
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
 
-                  <li>
-                    <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-
-                      <li><a href=#>Sous-Menu</a></li>
-
-
-                    </ul>
-
-                  </li>
-                  <li>
-                    <a><i class="fa fa-table"></i> Commande <span class="fa fa-chevron-down"></span></a>
-
-                    <ul class="nav child_menu">
-
-                      <li><a href="tables_dynamic.php">Liste De Commande</a></li>
-
-
-                    </ul>
-                  </li>
-
-                  <li>
-                    <a><i class="fa fa-automobile"></i> Livraison <span class="fa fa-chevron-down"></span></a>
-
-                    <ul class="nav child_menu">
-
-                      <li><a href="Ajout_Livreur.html">Ajout d'un livreur</a></li>
-                      <li><a href="Afficher_livreur.php">Gestion de livreurs</a></li>
-          <li><a href="liv_commande.php">Gestion de bons de livraison</a></li>
-          <li><a href="stat_bon.php">Statistiques</a></li>
-                    </ul>
-                  </li>
-                  <!-- Menu reduction-->
-            <li><a><i class="fa fa-percent"></i>Gestion des reductions <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
-                <li><a href="ajoutReduction.php">Ajouter Reduction</a></li>
-                <li><a href="modifierReduction.php">Modifier Reduction</a></li>
-                <li><a href="supprimerReduction.php">Supprimer Reduction</a></li>
-                <li><a href="AfficherReduction.php">Afficher les Reduction</a></li>
-                <li><a href="rechrcherreduction.php">rechercher  les Reduction</a></li>
-              </ul>
-            </li>
-            <!-- FIN Menu reduction-->
-             <!-- Menu Client Fidele-->
-            <li><a><i class="fa fa-user"></i>Gestion des Clients Fideles <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
-                <li><a href="ajoutclientfideles.php">Ajouter Clients Fidele</a></li>
-                <li><a href="modifierclientfideles.php">Modifier Clients Fidele</a></li>
-                <li><a href="supprimerclientfideles.php">Supprimer Clients Fidele</a></li>
-                <li><a href="Afficherclientfideles.php">Afficher les Clients Fidele</a></li>
-                <li><a href="rechrcherclientfideles.php">rechercher les Clients Fidele</a></li>
-              </ul>
-            </li>
-            <!-- FIN Menu Client Fidele-->
-                </ul>
-              </div>
-
-
-            </div>
+            <?php
+            include_once "D:/wamp64/www/projet_integre/gentelella-master/production/Product/headerfinal.php"
+            ?>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->

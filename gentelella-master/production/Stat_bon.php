@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -28,6 +29,8 @@
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+
+
   </head>
 
   <body class="nav-md">
@@ -54,51 +57,9 @@
             <!-- /menu profile quick info -->
 
             <br />
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-
-                  <li>
-                    <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-
-                      <li><a href=#>Sous-Menu</a></li>
-
-
-                    </ul>
-
-                  </li>
-                  <li>
-                    <a><i class="fa fa-table"></i> Commande <span class="fa fa-chevron-down"></span></a>
-
-                    <ul class="nav child_menu">
-
-                      <li><a href="tables_dynamic.php">Liste De Commande</a></li>
-
-
-                    </ul>
-                  </li>
-
-                  <li>
-                    <a><i class="fa fa-automobile"></i> Livraison <span class="fa fa-chevron-down"></span></a>
-
-                    <ul class="nav child_menu">
-
-                      <li><a href="Ajout_Livreur.html">Ajout d'un livreur</a></li>
-                      <li><a href="Afficher_livreur.php">Gestion de livreurs</a></li>
-          <li><a href="liv_commande.php">Gestion de bons de livraison</a></li>
-          <li><a href="stat_bon.php">Statistiques</a></li>
-                    </ul>
-                  </li>
-
-                </ul>
-              </div>
-
-
-            </div>
-            <!-- /sidebar menu -->
+              <?php
+              include_once "D:/wamp64/www/projet_integre/gentelella-master/production/Product/headerfinal.php"
+              ?>
 
             <!-- /menu footer buttons -->
           </div>
@@ -222,6 +183,9 @@
                 </div>
 
 <div id="piechart"></div>
+<br>
+<a href="tunisia.php">
+<button type="button" name="button" class="btn btn-danger" >Afficher sur la carte</button></a>
 <?php
 include "D:/wamp64/www/Projet_integre/core/commandeC.php";
 
@@ -266,6 +230,8 @@ $nbr=$x['s'];
 
 
           </div>
+
+
         </div>
         <!-- /page content -->
 

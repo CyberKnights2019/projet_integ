@@ -45,7 +45,7 @@ function afficherclientfideles ($clientfideles){
 		$sql="DELETE FROM clientfideles where id= :id";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':idClient',$idClient);
+		$req->bindValue(':id',$id);
 		try{
             $req->execute();
            // header('Location: index.php');
@@ -61,12 +61,13 @@ function afficherclientfideles ($clientfideles){
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{
         $req=$db->prepare($sql);
-		$idClientn=$clientfideles->getidClient();
+		$idClient=$clientfideles->getidClient();
         $PointsFidelite=$clientfideles->getPointsFidelite();
 
-
+//echo $sql;
 		$req->bindValue(':idClient',$idClient);
 		$req->bindValue(':PointsFidelite',$PointsFidelite);
+		$req->bindValue(':id',$id);
 
 
             $s=$req->execute();

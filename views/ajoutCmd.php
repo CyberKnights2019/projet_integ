@@ -20,9 +20,19 @@ if (isset($_POST['livraison']) and isset($_POST['Payment']) ){
 	$adresse=$_POST['adresseCheck'];
 	}
 
+$db = config::getConnexion();
+$req=$db->prepare("Select * from paniers where id_p=0");
+$req->execute();
+while($row = $req->fetch())
+{
+  
+
+  $req2=$db->prepare("update produit set quantite = quantite -".$row['QTE']." where id=".$row['ID_PRO']);
+  $req2->execute();
+
+}
 
 	$prix_t= $_SESSION['total'];
-
 	$Cmd1=new Commande(18,6,$prix_t,"f",$liv,$pay,$zone,$adresse);
 	$Cmd1C=new CommandeC();
 	$Cmd1C->ajouterCommande($Cmd1);

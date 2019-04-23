@@ -1,6 +1,6 @@
 <?PHP
 
-class Produit{
+class Produitt{
 	private $id_pro;
 	private $nom_pro;
 	private $prix;
@@ -63,7 +63,22 @@ class Produit{
         }	
 	
     }
+    function afficherr($id){
+        //$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+        $db = config::getConnexion();
+        try{
+            $req=$db->prepare("SElECT * From produit where id =:id");
+            $req->bindValue(':id',$id);
+            $req->execute();
+            $liste=$req->fetchAll();
 
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+
+    }
 }
 
 ?>

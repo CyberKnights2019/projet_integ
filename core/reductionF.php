@@ -52,7 +52,7 @@ function afficherreduction ($reduction){
 		$sql="DELETE FROM reduction where id= :id";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
-		$req->bindValue(':idProduit',$idProduit);
+		$req->bindValue(':id',$id);
 		try{
             $req->execute();
            // header('Location: index.php');
