@@ -1,5 +1,5 @@
-<?php 
-session_start();
+<?php
+
 require 'header.php';
 
 
@@ -47,14 +47,14 @@ require 'header.php';
             </div>
             <div class="row mb-5">
 
-              <?php 
+              <?php
               $produit=new Produitt();
               $listeproduits  =$produit->afficherProduits();
-              
-               
-              foreach ($listeproduits as $prod ) { 
+
+
+              foreach ($listeproduits as $prod ) {
                 ?>
-               
+
 
                  <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
@@ -68,12 +68,12 @@ require 'header.php';
                   </div>
                 </div>
               </div>
-            <?php 
+            <?php
              }
               ?>
-              
-             
-             
+
+
+
 
 
             </div>
@@ -187,11 +187,11 @@ require 'header.php';
                     </a>
                   </div>
                 </div>
-              
+
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
 

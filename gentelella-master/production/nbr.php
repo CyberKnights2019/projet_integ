@@ -1,6 +1,6 @@
 <div class="card">
   <?php
-  include "d:/programs/wamp64/www/Projet_integre1/core/commandeC.php";
+  include "d:/wamp64/www/Projet_integre1/core/commandeC.php";
 
   $t=$_GET['n'];
 

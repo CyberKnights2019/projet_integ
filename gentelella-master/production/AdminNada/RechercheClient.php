@@ -6,7 +6,7 @@
                        </tr>
                       </thead>
 					  <?PHP
-include "d:/programs/wamp64/www/Projet_integre1/core/clientC.php";
+include "d:/wamp64/www/Projet_integre1/core/clientC.php";
 $client1C=new clientC();
 $listeClients=$client1C->recupererClientLogin($_POST['pseudo'],$client1C->conn);
 ?>

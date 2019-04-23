@@ -1,5 +1,5 @@
 <?php
- session_start();
+ 
 require 'header.php';
 
 ?>
@@ -153,7 +153,7 @@ require 'header.php';
                   <option value="Nabeul">Nabeul</option>
                   <option value="Sousse">Sousse</option>
                   <option value="Mahdia">Mahdia</option>
-            
+
                   <option value="Autre">Autre</option>
 
 

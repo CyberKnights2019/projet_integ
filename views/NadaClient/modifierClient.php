@@ -1,6 +1,6 @@
 <?PHP
 
-include 'd:/programs/wamp64/www/Projet_integre1/core/clientC.php';
+include 'd:/wamp64/www/Projet_integre1/core/clientC.php';
 $cc=new clientC();
 
 

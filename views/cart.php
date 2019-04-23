@@ -1,5 +1,5 @@
 <?php
- session_start();
+
 
 require 'header.php';
 
@@ -29,7 +29,7 @@ $_SESSION['singleShop']=0;
                               }
                               else {
                                 $_SESSION['qteCheck']="false";
-                              
+
                               }
 
 

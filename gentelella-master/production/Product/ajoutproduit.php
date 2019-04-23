@@ -1,6 +1,6 @@
 <?php
-include "d:/programs/wamp64/www/Projet_integre1/entities/Produitheni.php";
-include "d:/programs/wamp64/www/Projet_integre1/core/ProduitService.php";
+include "d:/wamp64/www/Projet_integre1/entities/Produitheni.php";
+include "d:/wamp64/www/Projet_integre1/core/ProduitService.php";
 if (($_POST['nom']!="") and ($_POST['marque']!="") and ($_POST['categorie']!="") and ($_POST['quantite']!="") and ($_POST['prix']!="") and ($_POST['description']!="") )
 {
 if(isset($_POST['add'])) {

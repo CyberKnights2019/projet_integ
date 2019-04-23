@@ -56,7 +56,7 @@
                 <br />
 
                 <?php
-                include_once "d:/programs/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
+                include_once "d:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
                 ?>
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small">

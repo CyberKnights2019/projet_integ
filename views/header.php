@@ -1,15 +1,26 @@
 <?php
-include "d:/programs/wamp64/www/Projet_integre1/core/commandeC.php";
-
+session_start();
+include "d:/wamp64/www/Projet_integre1/core/commandeC.php";
 $pa=new PanierC();
 $count=$pa->Count();
+
+if (isset($_SESSION['pseudo']))
+{
+$display2="block";
+$display="none";}
+else {
+$display2="none";
+$display="block";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>BEN MOUSSA OPTIC</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/ico" href="glass.ico">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -55,7 +66,7 @@ $count=$pa->Count();
                             <span class="icon icon-user-o" ></span>
                         </a>
                     </li>
-                  <li><a href="HisCmd.php"><span class="icon icon-person"></span></a></li>
+                  <li><a href="HisCmd.php" style="display : <?php echo $display2; ?>"><span class="icon icon-person"></span></a></li>
                   <li><a href="tables_dynamic.php"><span class="icon icon-heart-o"></span></a></li>
                   <li>
                     <a href="cart.php" class="site-cart">
@@ -74,9 +85,15 @@ $count=$pa->Count();
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
+          <li>  <a href="index.php">Accueil</a> </li>
+          <li><a href="shopheni.php">Boutique</a></li>
+          <li><a href="NadaClient/inscription.php" style="display : <?php echo $display; ?>">Crèer un compte</a></li>
+          <li><a href="disconnect.php" style="display : <?php echo $display2; ?>">Deconnexion</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">A propos de nous</a></li>
+        <!--        <li class="has-children">
               <a href="index.php">Home</a>
-              <ul class="dropdown">
+          <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
@@ -101,15 +118,14 @@ $count=$pa->Count();
               <li class="has-children">
                   <a href="">shop</a>
                   <ul class="dropdown">
-                      <li><a href="shopheni.php">shopheni</a></li>
+
                       <li><a href="shop.php">shopfadhel</a></li>
                       <li><a href="#">Menu Three</a></li>
                   </ul>
-              </li>
+              </li>-->
 
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+
+
           </ul>
         </div>
       </nav>

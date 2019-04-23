@@ -1,5 +1,5 @@
 <?php
-include "d:/programs/wamp64/www/Projet_integre1/entities/panier.php";
+include "d:/wamp64/www/Projet_integre1/entities/panier.php";
 
 class PanierC{
 

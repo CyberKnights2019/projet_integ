@@ -1,5 +1,5 @@
 <?PHP
-include_once "d:/programs/wamp64/www/Projet_integre1/config.php";
+include_once "d:/wamp64/www/Projet_integre1/config.php";
 class clientfidelesF {
 function afficherclientfideles ($clientfideles){
 		echo "idClient: ".$clientfideles->getidClient()."<br>";

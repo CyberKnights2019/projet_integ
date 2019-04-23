@@ -1,9 +1,9 @@
 <?PHP
  session_start();
 
-include "d:/programs/wamp64/www/Projet_integre1/core/panierC.php";
-
-
+include "d:/wamp64/www/Projet_integre1/core/panierC.php";
+if(isset($_SESSION['pseudo']))
+{
 if (isset($_POST['qte'])){
 	$qte= $_POST['qte'];
 	if($qte > 0)
@@ -44,6 +44,10 @@ if (isset($_POST['qte'])){
 
 
 
+}}
+else {
+
+  header('Location: NadaCLient/inscription.php');
 }
 
 /*$sql="SElECT  quantite From  produit where id= 52";

@@ -65,7 +65,7 @@ else {$pC =-1;}
             <br />
 
               <?php
-              include_once "d:/programs/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
+              include_once "d:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
               ?>
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
@@ -242,7 +242,7 @@ else {$pC =-1;}
                        </tr>
                       </thead>
 					  <?PHP
-                      include "d:/programs/wamp64/www/Projet_integre1/core/clientC.php";
+                      include "d:/wamp64/www/Projet_integre1/core/clientC.php";
 $client1C=new clientC();
 if($pC == -1)
 {

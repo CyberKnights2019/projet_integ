@@ -66,7 +66,7 @@ require ('header.php'); ?>
 
                       <?php
 
-                  include "d:/programs/wamp64/www/Projet_integre1/core/reductionF.php";
+                  include "d:/wamp64/www/Projet_integre1/core/reductionF.php";
 
                   $reductionF= new reductionF();
 
