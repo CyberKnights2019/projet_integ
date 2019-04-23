@@ -1,5 +1,5 @@
 <?php
-include "d:/programs/wamp64/www/Projet_integre1/core/livreurC.php";
+include "d:/wamp64/www/Projet_integre1/core/livreurC.php";
 ?>
 
 <!DOCTYPE html>
