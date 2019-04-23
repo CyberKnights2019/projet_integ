@@ -1,5 +1,5 @@
 <?php
-include "C:/wamp64/www/Projet_integre1/core/reductionF.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/reductionF.php";
 $reduction1F=new reductionF();
 $listereduction=$reduction1F->afficherreductions();
 require ('header.php');

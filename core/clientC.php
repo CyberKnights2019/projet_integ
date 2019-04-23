@@ -1,8 +1,8 @@
 
 <?php
 
-include_once "C:/wamp64/www/Projet_integre1/config.php";
-include "C:/wamp64/www/Projet_integre1/entities/client.php";
+include_once "d:/programs/wamp64/www/Projet_integre1/config.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/client.php";
 
 class clientC
 {

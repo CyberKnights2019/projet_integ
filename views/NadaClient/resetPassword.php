@@ -1,6 +1,6 @@
 <?php
 
-include 'C:/wamp64/www/Projet_integre1/core/clientC.php';
+include 'd:/programs/wamp64/www/Projet_integre1/core/clientC.php';
 
 $cc=new clientC(); //cnx déjà établie dans le constructeur de la classe crudClient
 //2-récupérer les informations depuis le formulaire et créer un objet  à insérer

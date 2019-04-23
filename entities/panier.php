@@ -1,6 +1,6 @@
 <?PHP
-include "C:/wamp64/www/Projet_integre1/config.php";
-include "C:/wamp64/www/Projet_integre1/entities/produit.php";
+include "d:/programs/wamp64/www/Projet_integre1/config.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/produit.php";
 
 class Panier{
 	private $id_pro;

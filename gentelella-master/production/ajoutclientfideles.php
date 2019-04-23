@@ -1,7 +1,7 @@
 <?php
 
-include "C:/wamp64/www/Projet_integre1/entities/clientfideles.php";
-include "C:/wamp64/www/Projet_integre1/core/clientfidelesF.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/clientfideles.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/clientfidelesF.php";
 if(isset($_POST['idClient']) and isset($_POST['PointsFidelite'])  )
 {
 
@@ -19,7 +19,7 @@ if(isset($_POST['idClient']) and isset($_POST['PointsFidelite'])  )
 
 ?>
 <?php
-include "C:/wamp64/www/Projet_integre1/core/livreurC.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/livreurC.php";
 require ('header.php');
 ?>
 

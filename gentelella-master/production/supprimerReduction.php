@@ -1,6 +1,6 @@
 <?php
-include "C:/wamp64/www/Projet_integre1/entities/reduction.php";
-include "C:/wamp64/www/Projet_integre1/core/reductionF.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/reduction.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/reductionF.php";
 
 $reductionF= new reductionF();
 

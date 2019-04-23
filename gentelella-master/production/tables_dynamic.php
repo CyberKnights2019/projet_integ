@@ -1,5 +1,5 @@
 <?php
-include "C:/wamp64/www/Projet_integre1/core/commandeC.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/commandeC.php";
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ include "C:/wamp64/www/Projet_integre1/core/commandeC.php";
 
 
               <?php
-              include_once "C:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
+              include_once "d:/programs/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
               ?>
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">

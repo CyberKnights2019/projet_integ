@@ -1,5 +1,5 @@
 <?PHP
-include "C:/wamp64/www/Projet_integre1/config.php";
+include "d:/programs/wamp64/www/Projet_integre1/config.php";
 class ReductionF {
 function afficherreduction ($reduction){
 		echo "idProduit: ".$reduction->getidProduit()."<br>";

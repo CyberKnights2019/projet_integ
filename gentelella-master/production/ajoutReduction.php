@@ -1,6 +1,6 @@
 <?php
-include "C:/wamp64/www/Projet_integre1/entities/reduction.php";
-include "C:/wamp64/www/Projet_integre1/core/reductionF.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/reduction.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/reductionF.php";
 
 if(isset($_POST['idProduit']) and isset($_POST['tauxReduction']) and isset($_POST['dateDebut']) and isset($_POST['dateFin']) )
 {

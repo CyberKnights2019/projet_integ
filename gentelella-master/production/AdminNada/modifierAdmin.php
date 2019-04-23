@@ -1,6 +1,6 @@
 <?PHP
 
-include "C:/wamp64/www/Projet_integre1/core/adminC.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/adminC.php";
 $cc=new adminC();
 
 

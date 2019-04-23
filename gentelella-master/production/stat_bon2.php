@@ -230,7 +230,7 @@
 
 <!--MORIS JS -->
 <?php
-include "C:/wamp64/www/Projet_integre1/core/commandeC.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/commandeC.php";
 
 $cmd=new CommandeC();
 $listeZone=$cmd->recupZone();

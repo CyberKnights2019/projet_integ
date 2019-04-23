@@ -56,7 +56,7 @@
             <!-- sidebar menu -->
 
             <?php
-            include_once "C:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
+            include_once "d:/programs/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
             ?>
             <!-- /sidebar menu -->
 

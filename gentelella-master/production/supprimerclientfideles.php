@@ -1,6 +1,6 @@
 <?php
-include "C:/wamp64/www/Projet_integre1/entities/clientfideles.php";
-include "C:/wamp64/www/Projet_integre1/core/clientfidelesF.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/clientfideles.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/clientfidelesF.php";
 $clientfidelesF= new clientfidelesF();
 
 if( isset($_POST['id'])){

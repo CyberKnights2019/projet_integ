@@ -1,9 +1,9 @@
 
 <?php
 
-include "C:/wamp64/www/Projet_integre1/core/adminC.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/adminC.php";
 
-include "C:/wamp64/www/Projet_integre1/core/loginC.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/loginC.php";
 
 
 $cc=new adminC();

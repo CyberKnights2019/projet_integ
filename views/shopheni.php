@@ -1,8 +1,8 @@
 <?php
 session_start();
 require 'header.php';
-include "C:/wamp64/www/Projet_integre1/entities/Produitheni.php";
-include "C:/wamp64/www/Projet_integre1/core/ProduitService.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/Produitheni.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/ProduitService.php";
 ?>
 
 

@@ -1,6 +1,6 @@
 <?php
-include "C:/wamp64/www/Projet_integre1/entities/commande.php";
-include "C:/wamp64/www/Projet_integre1/core/panierC.php";
+include "d:/programs/wamp64/www/Projet_integre1/entities/commande.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/panierC.php";
 
 
 class CommandeC{

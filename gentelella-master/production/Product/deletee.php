@@ -1,5 +1,5 @@
 <?PHP
-include "C:/wamp64/www/Projet_integre1/core/ProduitService.php";
+include "d:/programs/wamp64/www/Projet_integre1/core/ProduitService.php";
 $produitservice1 = new ProduitService();
 
 if (isset($_POST["idd"])){
