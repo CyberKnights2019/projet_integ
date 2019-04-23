@@ -1,6 +1,6 @@
 <?php
 require 'header.php';
-
+$_SESSION['qteCheck']="2";
 ?>
 
     <div class="site-blocks-cover" style="background-image: url(hero_1.png);" data-aos="fade">
@@ -10,7 +10,7 @@ require 'header.php';
             <h1 class="mb-2"></h1>
             <div class="intro-text text-center text-md-left">
               <p class="mb-4"></p>
-             
+
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@ require 'header.php';
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -222,7 +222,7 @@ require 'header.php';
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -237,6 +237,6 @@ require 'header.php';
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>

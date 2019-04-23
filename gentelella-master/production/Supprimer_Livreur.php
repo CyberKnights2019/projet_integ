@@ -1,5 +1,5 @@
 <?PHP
-include "D:/wamp64/www/Projet_integre/core/livreurC.php";
+include "C:/wamp64/www/Projet_integre1/core/livreurC.php";
 $livreurC=new livreurC();
 if (isset($_POST["cinL"])){
 	$livreurC->supprimerLivreur($_POST["cinL"]);

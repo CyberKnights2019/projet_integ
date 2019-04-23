@@ -1,8 +1,8 @@
 
 <?php
 
-include_once "D:/wamp64/www/Projet_integre/config.php";
-include "D:/wamp64/www/Projet_integre/entities/admin.php";
+include_once "C:/wamp64/www/Projet_integre1/config.php";
+include "C:/wamp64/www/Projet_integre1/entities/admin.php";
 
 class adminC
 {

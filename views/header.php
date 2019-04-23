@@ -1,5 +1,5 @@
 <?php
-include "D:/wamp64/www/Projet_integre/core/commandeC.php";
+include "C:/wamp64/www/Projet_integre1/core/commandeC.php";
 
 $pa=new PanierC();
 $count=$pa->Count();

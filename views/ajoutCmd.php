@@ -1,7 +1,7 @@
 <?PHP
  session_start();
 
-include "D:/wamp64/www/Projet_integre/core/CommandeC.php";
+include "C:/wamp64/www/Projet_integre1/core/CommandeC.php";
 
 
 if (isset($_POST['livraison']) and isset($_POST['Payment']) ){

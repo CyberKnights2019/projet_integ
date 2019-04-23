@@ -1,5 +1,5 @@
 <?php
-include "D:/wamp64/www/Projet_integre/core/livreurC.php";
+include "C:/wamp64/www/Projet_integre1/core/livreurC.php";
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ align:center;
             <br />
 
               <?php
-              include_once "D:/wamp64/www/projet_integre/gentelella-master/production/Product/headerfinal.php"
+              include_once "C:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
               ?>
 
             <!-- /menu footer buttons -->

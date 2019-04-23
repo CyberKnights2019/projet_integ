@@ -61,7 +61,7 @@
             <br />
 
               <?php
-              include_once "D:/wamp64/www/projet_integre/gentelella-master/production/Product/headerfinal.php"
+              include_once "C:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
               ?>
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
@@ -234,7 +234,7 @@
                        </tr>
                       </thead>
 					  <?PHP
-                      include "D:/wamp64/www/projet_integre/core/adminC.php";
+                      include "C:/wamp64/www/Projet_integre1/core/adminC.php";
 $admin1C=new adminC();
 $listeAdmins=$admin1C->afficherAdmins();
 ?>

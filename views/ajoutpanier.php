@@ -1,7 +1,7 @@
 <?PHP
  session_start();
 
-include "D:/wamp64/www/Projet_integre/core/panierC.php";
+include "C:/wamp64/www/Projet_integre1/core/panierC.php";
 
 
 if (isset($_POST['qte'])){

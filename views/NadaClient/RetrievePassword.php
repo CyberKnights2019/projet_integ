@@ -1,6 +1,6 @@
 <?php
 include "../email/m.php";
-include 'D:/wamp64/www/projet_integre/core/clientC.php';
+include 'C:/wamp64/www/Projet_integre1/core/clientC.php';
 
 
 $cc=new clientC();

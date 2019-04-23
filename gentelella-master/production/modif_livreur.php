@@ -1,6 +1,6 @@
 <?php
-include "D:/wamp64/www/Projet_integre/entities/livreur.php";
-include "D:/wamp64/www/Projet_integre/core/livreurC.php";
+include "C:/wamp64/www/Projet_integre1/entities/livreur.php";
+include "C:/wamp64/www/Projet_integre1/core/livreurC.php";
 $livreurrC = new livreurC();
 if (isset($_POST['modifier']))  {
                 $livreur=new livreur($_POST['cinL'],$_POST['nomL'],$_POST['prenomL'],$_POST['telL'],$_POST['mailL'],$_POST['adresseL'],"");

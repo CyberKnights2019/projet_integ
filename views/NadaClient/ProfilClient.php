@@ -82,7 +82,7 @@
     <form  name="modif_form"  method="POST" action="modifierClient.php"  >
 
 	 <?php
-     include 'D:/wamp64/www/projet_integre/core/clientC.php';
+     include 'C:/wamp64/www/Projet_integre1/core/clientC.php';
       session_start();
 
 $cc=new clientC();

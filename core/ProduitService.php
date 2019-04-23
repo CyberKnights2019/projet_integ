@@ -5,7 +5,7 @@
  * Date: 28/03/2019
  * Time: 16:20
  */
-include_once "D:/wamp64/www/Projet_integre/config.php";
+include_once "C:/wamp64/www/Projet_integre1/config.php";
 
 class ProduitService
 {

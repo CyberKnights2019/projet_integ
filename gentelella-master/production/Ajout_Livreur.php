@@ -59,7 +59,7 @@
 
           <br />
           <!-- sidebar menu -->
-<?php                include_once "D:/wamp64/www/projet_integre/gentelella-master/production/Product/headerfinal.php"
+<?php                include_once "C:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
 ?>
 
           <!-- /sidebar menu -->

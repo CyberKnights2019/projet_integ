@@ -1,6 +1,6 @@
 <?PHP
-include "D:/wamp64/www/Projet_integre/entities/bon.php";
-include "D:/wamp64/www/Projet_integre/core/bonC.php";
+include "C:/wamp64/www/Projet_integre1/entities/bon.php";
+include "C:/wamp64/www/Projet_integre1/core/bonC.php";
 
 
 

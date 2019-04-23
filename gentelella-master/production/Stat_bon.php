@@ -58,7 +58,7 @@
 
             <br />
               <?php
-              include_once "D:/wamp64/www/projet_integre/gentelella-master/production/Product/headerfinal.php"
+              include_once "C:/wamp64/www/Projet_integre1/gentelella-master/production/Product/headerfinal.php"
               ?>
 
             <!-- /menu footer buttons -->
@@ -187,7 +187,7 @@
 <a href="tunisia.php">
 <button type="button" name="button" class="btn btn-danger" >Afficher sur la carte</button></a>
 <?php
-include "D:/wamp64/www/Projet_integre/core/commandeC.php";
+include "C:/wamp64/www/Projet_integre1/core/commandeC.php";
 
 $cmd=new CommandeC();
 $listeZone=$cmd->recupZone();

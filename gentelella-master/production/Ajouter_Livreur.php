@@ -1,6 +1,6 @@
 <?PHP
-include "D:/wamp64/www/Projet_integre/entities/livreur.php";
-include "D:/wamp64/www/Projet_integre/core/livreurC.php";
+include "C:/wamp64/www/Projet_integre1/entities/livreur.php";
+include "C:/wamp64/www/Projet_integre1/core/livreurC.php";
 
 
 if (($_POST['cinL']!="") and ($_POST['nomL']!="") and ($_POST['prenomL']!="") and ($_POST['telL']!="") and ($_POST['adresseL']!="") and ($_POST['mailL']!="") )

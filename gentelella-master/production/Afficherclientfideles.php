@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include "D:/wamp64/www/Projet_integre/core/clientfidelesF.php";
+include "C:/wamp64/www/Projet_integre1/core/clientfidelesF.php";
 $clientfideles1F=new clientfidelesF();
 $listeclientfideles=$clientfideles1F->afficherclientfideless();
 require ('header.php');

@@ -1,6 +1,6 @@
 <?php
-include "D:/wamp64/www/Projet_integre/entities/reduction.php";
-include "D:/wamp64/www/Projet_integre/core/reductionF.php";
+include "C:/wamp64/www/Projet_integre1/entities/reduction.php";
+include "C:/wamp64/www/Projet_integre1/core/reductionF.php";
 
 $reductionF= new reductionF();
 
@@ -23,7 +23,7 @@ if( isset($_POST['idReduction']) and isset($_POST['idProduit']) and isset($_POST
 
 ?>
 <?php
-include "D:/wamp64/www/Projet_integre/core/livreurC.php";
+include "C:/wamp64/www/Projet_integre1/core/livreurC.php";
 require ('header.php');
 ?>
 
