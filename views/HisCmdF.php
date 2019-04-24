@@ -1,5 +1,5 @@
 <?PHP
-
+session_start();
 include "d:/wamp64/www/Projet_integre1/core/CommandeC.php";
 
 if (isset($_POST['IDC'])){

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'd:/wamp64/www/Projet_integre1/core/clientC.php';
 
 $cc=new clientC(); //cnx déjà établie dans le constructeur de la classe crudClient
@@ -21,7 +21,7 @@ if (isset($_POST['pseudo']) and isset($_POST['email']) and isset($_POST['motdepa
 }
 
 	  $client = new Client ($_POST['pseudo'],$_POST['email'],$_POST['motdepasse']);
-
+$_SESSION['pseudo']=$_POST['pseudo'];
   $cc->insertClient($client,$cc->conn);
 header('location:ProfilClient.php');
   }

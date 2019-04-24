@@ -2,7 +2,6 @@
 
 require 'header.php';
 
-
 if(isset($_GET['id']))
 {
   $idC=$_GET['id'];

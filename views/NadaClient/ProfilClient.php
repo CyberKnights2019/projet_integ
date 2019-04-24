@@ -1,5 +1,4 @@
-
-
+<?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +82,7 @@
 
 	 <?php
      include 'd:/wamp64/www/Projet_integre1/core/clientC.php';
-      session_start();
+      
 
 $cc=new clientC();
 
