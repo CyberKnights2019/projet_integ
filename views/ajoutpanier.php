@@ -1,7 +1,7 @@
 <?PHP
  session_start();
 
-include "d:/wamp64/www/Projet_integre1/core/panierC.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/panierC.php";
 if(isset($_SESSION['pseudo']))
 {
 if (isset($_POST['qte'])){
@@ -50,17 +50,6 @@ else {
   header('Location: NadaCLient/inscription.php');
 }
 
-/*$sql="SElECT  quantite From  produit where id= 52";
-$db = config::getConnexion();
 
-$req=$db->prepare($sql);
-//$idpro=$panier->getId_pro();
-//$qte=$panier->getQte();
-//$req->bindValue(':idpro',$idpro);
-$req->execute();
-$qteB = $req->fetch(0);
-
-//var_dump($qteB);
-echo $qteB[0];*/
 
 ?>

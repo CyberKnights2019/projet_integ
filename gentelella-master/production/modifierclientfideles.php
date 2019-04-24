@@ -1,6 +1,6 @@
 <?php
-include "d:/wamp64/www/Projet_integre1/entities/clientfideles.php";
-include "d:/wamp64/www/Projet_integre1/core/clientfidelesF.php";
+include "D:/programs/wamp64/www/Projet_integre1/entities/clientfideles.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/clientfidelesF.php";
 
 $clientfidelesF= new clientfidelesF();
 
@@ -21,7 +21,7 @@ if( isset($_POST['id']) and isset($_POST['idClient']) and isset($_POST['PointsFi
 
 ?>
 <?php
-include "d:/wamp64/www/Projet_integre1/core/livreurC.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/livreurC.php";
 require ('header.php');
 ?>
 

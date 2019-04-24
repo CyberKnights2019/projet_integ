@@ -1,5 +1,5 @@
 <?PHP
-include_once "d:/wamp64/www/Projet_integre1/config.php";
+include_once "D:/programs/wamp64/www/Projet_integre1/config.php";
 class livreurC {
 	function ajouterLivreur($livreur){
 		$sql="insert into livreur (cin,nom,prenom,tel,mail,adresse,img) values (:cin, :nom,:prenom,:tel,:mail,:adresse,:img)";

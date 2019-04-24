@@ -1,5 +1,5 @@
 <?PHP
-include_once "d:/wamp64/www/Projet_integre1/config.php";
+include_once "D:/programs/wamp64/www/Projet_integre1/config.php";
 class bonC {
 	function ajouterBon($bon){
 		$sql="insert into bonlivraison (cinL,id_C,date_remise) values (:cinL, :id_c,:date)";

@@ -5,5 +5,5 @@
 
 2) Il faut faire find and replace all pour les include :
 
-Find : D:/wamp64/www (à vérifier avec la dernière version sur Git)
+Find : D:/programs/wamp64/www (ï¿½ vï¿½rifier avec la derniï¿½re version sur Git)
 Replace : Votre chemin

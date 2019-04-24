@@ -1,7 +1,7 @@
 <?php
 
-include 'd:/wamp64/www/Projet_integre1/core/adminC.php';
-include 'd:/wamp64/www/Projet_integre1/core/loginC.php';
+include 'D:/programs/wamp64/www/Projet_integre1/core/adminC.php';
+include 'D:/programs/wamp64/www/Projet_integre1/core/loginC.php';
 
 $cc=new adminC(); //cnx déjà établie dans le constructeur de la classe crudClient
 //2-récupérer les informations depuis le formulaire et créer un objet  à insérer

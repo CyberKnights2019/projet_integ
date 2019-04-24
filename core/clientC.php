@@ -1,8 +1,8 @@
 
 <?php
 
-include_once "d:/wamp64/www/Projet_integre1/config.php";
-include "d:/wamp64/www/Projet_integre1/entities/client.php";
+include_once "D:/programs/wamp64/www/Projet_integre1/config.php";
+include "D:/programs/wamp64/www/Projet_integre1/entities/client.php";
 
 class clientC
 {
@@ -117,5 +117,28 @@ class clientC
             die('Erreur: '.$e->getMessage());
         }
 	}
+
+  function recupMail($pseudo){
+
+      $sql="SElECT email from client where pseudo =:pseudo ";
+      $db = config::getConnexion();
+      try{
+
+        $req=$db->prepare($sql);
+        $req->bindValue(':pseudo',$pseudo);
+
+      $req->execute();
+      return $req->fetch();
+      }
+          catch (Exception $e){
+              die('Erreur: '.$e->getMessage());
+          }
+
+      }
+
+
+
+
+
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-include "d:/wamp64/www/Projet_integre1/entities/panier.php";
+include "D:/programs/wamp64/www/Projet_integre1/entities/panier.php";
 
 class PanierC{
 
@@ -193,6 +193,21 @@ class PanierC{
 
 		}
 
+
+
+		    function supprimerPanierTout(){
+				$sql="DELETE FROM paniers where  ID_P=0";
+				$db = config::getConnexion();
+		        $req=$db->prepare($sql);
+
+				try{
+		            $req->execute();
+		           // header('Location: index.php');
+		        }
+		        catch (Exception $e){
+		            die('Erreur: '.$e->getMessage());
+		        }
+			}
 
 
 }

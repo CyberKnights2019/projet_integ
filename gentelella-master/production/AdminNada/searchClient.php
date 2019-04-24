@@ -1,5 +1,5 @@
 <?php
-include 'd:/wamp64/www/Projet_integre1/core/clientC.php';
+include 'D:/programs/wamp64/www/Projet_integre1/core/clientC.php';
 
 if (isset ($_POST['submitsearch']))
 {

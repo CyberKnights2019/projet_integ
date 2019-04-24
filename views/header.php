@@ -1,6 +1,7 @@
 <?php
-session_start();
-include "d:/wamp64/www/Projet_integre1/core/commandeC.php";
+  session_start();
+  
+include "D:/programs/wamp64/www/Projet_integre1/core/commandeC.php";
 $pa=new PanierC();
 $count=$pa->Count();
 

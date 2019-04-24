@@ -1,5 +1,4 @@
 <?php
-
 require 'header.php';
 
 if(isset($_GET['id']))
@@ -7,9 +6,9 @@ if(isset($_GET['id']))
   $idC=$_GET['id'];
 }
 else {$idC =-1;}
+
  ?>
 }
-
 
 <div class="bg-light py-3">
       <div class="container">
@@ -41,9 +40,9 @@ else {$idC =-1;}
 
              if(isset($_SESSION['trie']) && $_SESSION['trie']==1)
              {
-              $liste  =$cmd->afficherCommandeTrie();
+              $liste  =$cmd->afficherCommandeTrie($_SESSION['pseudo']);
              }
-             else { $liste  =$cmd->afficherCommande(); }
+             else { $liste  =$cmd->afficherCommandeClient($_SESSION['pseudo']); }
 
 
               foreach ($liste as $c ) {

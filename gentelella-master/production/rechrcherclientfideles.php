@@ -66,7 +66,7 @@ require ('header.php'); ?>
 
                      <?php
 
-                 include_once "d:/wamp64/www/Projet_integre1/core/clientfidelesF.php";
+                 include_once "D:/programs/wamp64/www/Projet_integre1/core/clientfidelesF.php";
 
                  $clientfidelesF= new clientfidelesF();
 

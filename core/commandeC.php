@@ -1,6 +1,6 @@
 <?php
-include "d:/wamp64/www/Projet_integre1/entities/commande.php";
-include "d:/wamp64/www/Projet_integre1/core/panierC.php";
+include "D:/programs/wamp64/www/Projet_integre1/entities/commande.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/panierC.php";
 
 
 class CommandeC{
@@ -60,8 +60,7 @@ class CommandeC{
 	}
 
 	function afficherCommande(){
-		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * from commandes where cin = 18";
+		$sql="SElECT * from commandes ";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -72,6 +71,23 @@ class CommandeC{
         }
 
     }
+
+		function afficherCommandeClient($pseudo){
+
+			$sql="SElECT * from commandes where cin = :cin";
+			$db = config::getConnexion();
+			try{
+				$req=$db->prepare($sql);
+				$req->bindValue(':cin',$pseudo);
+
+			$req->execute();
+			return $req->fetchAll();
+			}
+	        catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+	        }
+
+	    }
 
 
 		function afficherCommandeDefinie($id){
@@ -153,13 +169,16 @@ class CommandeC{
 
 
 
-function afficherCommandeTrie(){
+function afficherCommandeTrie($pseudo){
 		//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-		$sql="SElECT * from commandes where cin = 18 order by prix_t desc";
+		$sql="SElECT * from commandes where cin = :cin order by prix_t desc";
 		$db = config::getConnexion();
 		try{
-		$liste=$db->query($sql);
-		return $liste;
+			$req=$db->prepare($sql);
+			$req->bindValue(':cin',$pseudo);
+
+		$req->execute();
+		return $req->fetchAll();
 		}
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
@@ -196,6 +215,8 @@ function afficherCommandeTrie(){
 								}
 
 						}
+
+					
 
 }
 ?>

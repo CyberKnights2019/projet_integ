@@ -1,8 +1,8 @@
 <?PHP
  session_start();
 
-include "d:/wamp64/www/Projet_integre1/core/CommandeC.php";
-
+include "D:/programs/wamp64/www/Projet_integre1/core/CommandeC.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/clientC.php";
 
 if (isset($_POST['livraison']) and isset($_POST['Payment']) ){
 
@@ -25,7 +25,7 @@ $req=$db->prepare("Select * from paniers where id_p=0");
 $req->execute();
 while($row = $req->fetch())
 {
-  
+
 
   $req2=$db->prepare("update produit set quantite = quantite -".$row['QTE']." where id=".$row['ID_PRO']);
   $req2->execute();
@@ -33,16 +33,18 @@ while($row = $req->fetch())
 }
 
 	$prix_t= $_SESSION['total'];
-	$Cmd1=new Commande(18,6,$prix_t,"f",$liv,$pay,$zone,$adresse);
+	$Cmd1=new Commande($_SESSION['pseudo'],6,$prix_t,"processing",$liv,$pay,$zone,$adresse);
 	$Cmd1C=new CommandeC();
 	$Cmd1C->ajouterCommande($Cmd1);
 
-		$to ="mohamedfadhel.shel@esprit.tn";
+  $client = new clientC();
+  $to = $client->recupMail($_SESSION['pseudo']);
+
 		$subject ="Moussa Optic: Commande";
 		$message="Votre commande est en cours de traitement, Merci";
-		$headers ="From: fadhel.shel@gmail.com";
+		$headers ="From: Moussa Optic";
 
-		mail($to, $subject, $message,$headers);
+		mail($to[0], $subject, $message,$headers);
 
 	header("Location: thankyou.php");
 

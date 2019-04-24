@@ -1,7 +1,8 @@
 <?PHP
  session_start();
 
-include "d:/wamp64/www/Projet_integre1/core/CommandeC.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/CommandeC.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/clientC.php";
 
 if (isset($_POST['IDC'])){
 
@@ -12,11 +13,13 @@ if (isset($_POST['IDC'])){
 		$Cmd1C=new CommandeC();
 		$Cmd1C->updateEtat($id,$etat);
 
-		$to ="mohamedfadhel.shel@esprit.tn";
+    $client = new clientC();
+    $to = $client->recupMail($_SESSION['pseudo']);
+
 		$subject ="Moussa Optic: Commande";
 		$message="Votre commande ID ".$id.": ".$etat;
-		$headers ="From: fadhel.shel@gmail.com";
-		mail($to, $subject, $message,$headers);
+		$headers ="From: Moussa Optic";
+		mail($to[0], $subject, $message,$headers);
 
 		header("Location: tables_dynamic.php");
 

@@ -1,7 +1,7 @@
 <?php
 
-
 require 'header.php';
+
 
 if ($_SESSION['qteCheck']!="false" && $_SESSION['qteCheck']!="true")
 {
