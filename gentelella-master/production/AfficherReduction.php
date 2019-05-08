@@ -1,4 +1,6 @@
 <?php
+
+
 include "D:/programs/wamp64/www/Projet_integre1/core/reductionF.php";
 $reduction1F=new reductionF();
 $listereduction=$reduction1F->afficherreductions();

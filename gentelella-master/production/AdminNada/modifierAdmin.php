@@ -1,10 +1,12 @@
 <?PHP
+session_start();
 
-include "D:/programs/wamp64/www/Projet_integre1/core/adminC.php";
+include "D:/programs/wamp64/www/Projet_integre1//core/adminC.php";
 $cc=new adminC();
 
+if(!isset($_SESSION['pseudoA']))
+header('location: login.php');
 
-session_start();
 
 
 	if(isset($_SESSION['pseudoA']) && isset($_SESSION['mdpA']))

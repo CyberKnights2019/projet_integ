@@ -23,7 +23,8 @@ if (isset($_POST['ConfirmationCode']) and isset($_POST['motdepasse']) and isset(
 	  {
 		  foreach ($resultat as $r)
 	 {
-	    $cc->modifierClientPassword($r['pseudo'],$_POST['motdepasse'],$cc->conn);
+		$cc->modifierClientPassword($r['pseudo'],$_POST['motdepasse'],$cc->conn);
+		header('Location:account.php');
 	 }
 	  }
 	  else

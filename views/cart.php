@@ -13,7 +13,7 @@ $_SESSION['singleShop']=0;
               $panier=new PanierC();
 
               $listeproduits  =$panier->afficherProduits();
-              $total=$panier->Total();
+              $total=0;
               foreach ($listeproduits as $p ) {
 
  if(isset($_POST['qte'.$p['ID_PRO']]))
@@ -69,7 +69,7 @@ $_SESSION['singleShop']=0;
              $panier=new PanierC();
 
               $listeproduits  =$panier->afficherProduits();
-              $total=$panier->Total();
+              $total=0;
 
               foreach ($listeproduits as $p ) {
 
@@ -107,8 +107,12 @@ $_SESSION['singleShop']=0;
                               $id =$p['ID_PRO'];
                               $db = mysqli_connect("localhost","root","","projet"); //keep your db name
                               $sql = "SELECT * FROM produit where id =$id ";
-                              $sth = $db->query($sql);
-                              $result=mysqli_fetch_array($sth);
+                                        $sql1= "SELECT * FROM reduction where idProduit=$id";
+                                        $sth = $db->query($sql);
+                                        $sth1 = $db->query($sql1);
+                                        $result=mysqli_fetch_array($sth);
+                                        $result1=mysqli_fetch_array($sth1);
+
                               echo '<img width="150" height="150" src="data:image/jpeg;base64,'.base64_encode( $p['image'] ).'"/>';
                               ?></a>
                             </figure>
@@ -119,7 +123,19 @@ $_SESSION['singleShop']=0;
                     <td class="product-name">
                       <h2 class="h5 text-black"><?php echo $p['nom']; ?></h2>
                     </td>
-                    <td><?php echo $p['prix']; ?> DT</td>
+                    <td>
+                       <?php foreach ($sth1 as $row) {}?>
+                                        <?php
+                                        if(mysqli_affected_rows($db)!=0)
+                                        {?>
+                                         <p><?php echo $p['prix']-($p['prix']*$row['tauxReduction'])/100; ?> DT</p>
+
+                                        <?php }else{?>
+                                        <p><?php echo $p['prix']; ?>DT</p>
+                                       <?php }
+                                        ?>
+
+                    </td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 150px;">
                         <div class="input-group-prepend">
@@ -143,7 +159,20 @@ $_SESSION['singleShop']=0;
 
 
                     </td>
-                    <td><?php echo $p['prix']*$p['QTE']; ?> DT</td>
+                    <td>
+                       <?php foreach ($sth1 as $row) {}?>
+                                        <?php
+                                        if(mysqli_affected_rows($db)!=0)
+                                        {?>
+                                         <p><?php  $total+=($p['prix']-($p['prix']*$row['tauxReduction'])/100)*$p['QTE'];echo ($p['prix']-($p['prix']*$row['tauxReduction'])/100)*$p['QTE']; ?> DT</p>
+
+                                        <?php }else{?>
+                                        <p><?php  $total+=$p['prix']*$p['QTE'];echo $p['prix']*$p['QTE']; ?> DT</p>
+                                       <?php }
+                                        ?>
+
+
+                    </td>
                     <td><a href="cart.php?del=<?php echo $p['ID_PRO']; ?>" class="btn btn-primary btn-sm">X</a></td>
 
                   </tr>
@@ -177,7 +206,7 @@ $_SESSION['singleShop']=0;
               <div class="col-md-6">
               </div>
             </div>
-            
+
           </div>
 
           <div class="col-md-6 pl-5">
@@ -203,6 +232,8 @@ $_SESSION['singleShop']=0;
                     <?php
                     if($total > 0)
                     {
+
+                      $_SESSION['total']=$total;
                       ?>
                       <button class="btn btn-primary btn-lg py-3 btn-block"  onclick="window.location='checkout.php'">Proceed To Checkout</button>
                    <?php

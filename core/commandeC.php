@@ -104,6 +104,24 @@ class CommandeC{
 
 	    }
 
+
+			function afficherCommandeCin($id){
+				//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+				$sql="SElECT cin from commandes where id_c =:id";
+				$db = config::getConnexion();
+				try{
+				$req=$db->prepare($sql);
+				$req->bindValue(':id',$id);
+				$req->execute();
+				return $req->fetch();
+				}
+						catch (Exception $e){
+								die('Erreur: '.$e->getMessage());
+						}
+
+				}
+
+
 			function afficherCommandeNL(){
 				//$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
 				$sql="SElECT * from commandes where zone!='Boutique' && id_c not in (select id_c from bonlivraison)";
@@ -216,7 +234,7 @@ function afficherCommandeTrie($pseudo){
 
 						}
 
-					
+
 
 }
 ?>

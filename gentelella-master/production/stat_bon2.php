@@ -1,3 +1,7 @@
+<?php session_start();
+if(!isset($_SESSION['pseudoA']))
+header('location: AdminNada/login.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

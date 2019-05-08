@@ -20,8 +20,10 @@
     <link rel="stylesheet" href="../css/styleboxlogin.css">
     <link rel="stylesheet" href="../css/styleboxforgot.css">
     <link rel="stylesheet" href="../css/styleboxsubscribe.css">
+    <link href="../css/custom.min.css" rel="stylesheet">
+
 </head>
-<body>
+<body class="login">
 
 <div class="site-wrap">
 
@@ -32,14 +34,12 @@
 
                     <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
                         <form action="" class="site-block-top-search">
-                            <span class="icon icon-search2"></span>
-                            <input type="text" class="form-control border-0" placeholder="Search">
                         </form>
                     </div>
 
                     <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                         <div class="site-logo">
-                            <a href="index.html" class="js-logo-clone">Ben Moussa Optic</a>
+                            <a href="../index.php" class="js-logo-clone">Ben Moussa Optic</a>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
 
                                 <!--CLIENT-->
                                 <li>
-                                    <a href="login.php">
+                                    <a href="account.php">
                                         <span class="icon icon-person" ></span>
                                     </a>
                                 </li>
@@ -61,9 +61,9 @@
 
                                 <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                 <li>
-                                    <a href="cart.html" class="site-cart">
+                                    <a href="../cart.php" class="site-cart">
                                         <span class="icon icon-shopping_cart"></span>
-                                        <span class="count">2</span>
+
                                     </a>
                                 </li>
                                 <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -77,47 +77,14 @@
 
 
 
-        <nav class="site-navigation text-right text-md-center" role="navigation">
-            <div class="container">
-                <ul class="site-menu js-clone-nav d-none d-md-block">
-                    <li class="has-children active">
-                        <a href="index.html">Home</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                            <li><a href="#">Menu Two</a></li>
-                            <li><a href="#">Menu Three</a></li>
-                            <li class="has-children">
-                                <a href="#">Sub Menu</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Menu One</a></li>
-                                    <li><a href="#">Menu Two</a></li>
-                                    <li><a href="#">Menu Three</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-children">
-                        <a href="about.html">About</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                            <li><a href="#">Menu Two</a></li>
-                            <li><a href="#">Menu Three</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="#">Catalogue</a></li>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
     </header>
 
     <!--CLIENT -->
 
+    <div class="login_wrapper">
 
 
-    <form  method="POST" name="subscription" id="subscription" action="ajouterclient.php" ">
+    <form  method="POST" name="subscription" id="subscription" action="ajouterclient.php" >
     <input type="text" placeholder="Nickname" name="pseudo" id="pseudo"  size="10" class="form-control" required>
     <?php if(!empty($_GET['message']))
     {
@@ -126,9 +93,12 @@
     }
 
     ?>
+    <div >
     <input type="email" placeholder="Mail" name="email" id="email"  size="50" class="form-control" required>
     <input type="Password" placeholder="Password" name="motdepasse" id="motdepasse" size="10" class="form-control" required>
     <input type="Password" placeholder="Verify Password" name="motdepasse_conf" id="motdepasse_conf" size="10" class="form-control" required>
+  </div >
+
     <?php
     if(!empty($_GET['message2']))
     {
@@ -136,13 +106,13 @@
         echo '<p style="color:red;"> '.$message2.'</p>'; //if we find a message in the URL, means there's an error
     }
     ?>
-    <input class="button" type="submit">
+    <input class="button" type="submit" style="background-color:blue">
     <p class="alreadyaccount">Already a client?</p>
     <a href="login.php">   <p class="signIn" >Sign In</p>  </a>
     </form>
 
 
-
+  </div>
 
 
     <!--<script type="text/javascript" src="js/trait.js"></script>
@@ -160,5 +130,3 @@
 
 </body>
 </html>
-
-

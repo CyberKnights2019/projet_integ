@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php session_start();
+if(!isset($_SESSION['pseudoA']))
+header('location: AdminNada/login.php');
+ ?>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,11 +51,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                     <h2><?php echo $_SESSION['pseudoA'] ; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

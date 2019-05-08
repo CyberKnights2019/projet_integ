@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['pseudoA']))
+header('location: AdminNada/login.php');
+
 include "D:/programs/wamp64/www/Projet_integre1/core/livreurC.php";
 ?>
 
@@ -63,11 +68,11 @@ align:center;
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Cina</h2>
+                     <h2><?php echo $_SESSION['pseudoA'] ; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

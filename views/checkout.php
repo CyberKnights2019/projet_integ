@@ -1,5 +1,5 @@
 <?php
- 
+
 require 'header.php';
 
 ?>
@@ -8,7 +8,7 @@ require 'header.php';
     <div class="bg-light py-3">
       <div class="container">
         <div class="row ">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.php">Home</a> <span class="mx-2 mb-0">/</span> <a href="cart.php">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@ require 'header.php';
         </div>
         <div class="row">
 
-            <form class="col-md-12" method="post" action="ajoutCmd.php">
+            <form class="col-md-12" method="post" action="ajoutCmd.php" >
             <div class="row mb-5">
               <div class="col-md-12">
                 <h2 class="h3 mb-3 text-black">Your Order</h2>
@@ -39,11 +39,12 @@ require 'header.php';
                                $panier=new PanierC();
 
                               $listeproduits  =$panier->afficherProduits();
-
+                     $a=0;
                      $totalF=0;
                      $totalD=$panier->Total();
+                     $total=$_SESSION['total'];
                               foreach ($listeproduits as $p ) {
-                                 $total=$panier->Total();
+
 
                               /*
                               if($p['QTE']>=500 && $p['prix']*$p['QTE']>=5000 ){
@@ -63,51 +64,76 @@ require 'header.php';
 
 
                               }*/
+                        /*      $tSans=0;
+                              $t=0;
+                              if(isset($_SESSION['total']))
+                              $total=$_SESSION['total'];
+                            /*  else
+                              $_SESSION['total']=$total;*/
 
-                              $_SESSION['total']=$total;
+                              $id =$p['ID_PRO'];
+                              $db = mysqli_connect("localhost","root","","projet"); //keep your db name
+
+                                        $sql1= "SELECT * FROM reduction where idProduit=$id";
+
+                                        $sth1 = $db->query($sql1);
+
+                                        $result1=mysqli_fetch_array($sth1);
+                                         foreach ($sth1 as $row) {}
+
+                                                         if(mysqli_affected_rows($db)!=0)
+                                                         {
+                                                         $p['prix']=$p['prix']-($p['prix']*$row['tauxReduction'])/100;
+
+                                                          }
+
+
+
 
 
                       ?>
 
                             <tr>
-                            <?php if($p['QTE']>=500 && $p['prix']*$p['QTE']>=5000 ){    ?>
-                              <td><?php echo $p['prix']*$p['QTE']-($p['prix']*$p['QTE']*50)/100; ?> DT <p>Remise Special<small> -50%</small></p></td>
-                              <?php $total=$total-($p['prix']*$p['QTE']*50)/100 ?>
+                            <?php if($p['QTE']>=500 && $p['prix']*$p['QTE']>=5000 ){  $a=1;  ?>
+                              <td><?php echo $p['nom'] ; ?></td>
+                              <td><?php echo ($p['prix']*$p['QTE']-($p['prix']*$p['QTE']*50)/100); ?> DT <p>Remise Special<small> -50%</small></p></td>
+
+                              <?php $reduction=50; $total=($p['prix']*$p['QTE']-($p['prix']*$p['QTE']*50)/100) ?>
+                              <?php $totalF+=$total;
+
+
+
+                            } else if($p['QTE']>=500 && $p['prix']*$p['QTE']<5000 ){  $a=1;  ?>
+                              <td><?php echo $p['nom'] ; ?> </td>
+                              <td><?php echo ($p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100); ?> DT<p>Remise Sur Quantite <small> -20%</small></p></td>
+                              <?php $reduction=20; $total=($p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100); ?>
 
                               <?php $totalF+=$total;
-                            }?>
 
-                            <?php if($p['QTE']>=500 && $p['prix']*$p['QTE']<5000 ){    ?>
-                              <td><?php echo $p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100; ?> DT<p>Remise Sur Quantite <small> -20%</small></p></td>
-                              <?php $total=$total-($p['prix']*$p['QTE']*20)/100 ?>
+                            } else if($p['QTE']<500 && $p['prix']*$p['QTE']>=5000 ){ $a=1; ?>
+                              <td><?php echo $p['nom'] ; ?></td>
+                              <td><?php echo ($p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100); ?> DT<p>Remise sur Prix<small> -20%</small></p></td>
 
+                              <?php $reduction=20; $total=($p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100); ?>
                               <?php $totalF+=$total;
-                            }?>
+                            } else if($p['QTE']<500 && $p['prix']*$p['QTE']<5000 ){    ?>
+                              <td><?php echo $p['nom']; ?></td>
+                              <td><?php echo ($p['prix']*$p['QTE']); ?> DT</td>
 
-                            <?php if($p['QTE']<500 && $p['prix']*$p['QTE']>=5000 ){    ?>
-                              <td><?php echo $p['prix']*$p['QTE']-($p['prix']*$p['QTE']*20)/100; ?> DT<p>Remise sur Prix<small> -20%</small></p></td>
-                              <?php $total=$total-($p['prix']*$p['QTE']*20)/100 ?>
-
-                              <?php $totalF+=$total;
-                            }?>
-
-                            <?php if($p['QTE']<500 && $p['prix']*$p['QTE']<5000 ){    ?>
-                              <td><?php echo $p['prix']*$p['QTE']; ?> DT</td>
                               <?php
+                                $totalF+=$p['prix']*$p['QTE'];
                             }?>
-
                             </tr>
                           <?php
                         }
                         ?>
-
                             <tr>
                               <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                              <?php if($totalF==0){$_SESSION['total']=$totalD; ?>
+                              <?php if($a==0){$totalD=$_SESSION['total']; ?>
                                 <td class="text-black font-weight-bold"><strong><?php echo $totalD;?> DT </td>
-                              <?php }else{$_SESSION['total']=$totalF;?>
-                               <td class="text-black font-weight-bold"><strong><strike><?php echo $totalD;?> DT </strike><br><?php echo $totalF?></strong> DT</td>
-                              <?php }?>
+                              <?php }else{?>
+                               <td class="text-black font-weight-bold"><strong><strike><?php echo $_SESSION['total'];?> DT </strike><br><?php echo $totalF ?></strong> DT</td>
+                              <?php  $_SESSION['totalF']=$totalF;}?>
 
                             </tr>
                           </tbody>

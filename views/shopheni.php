@@ -3,6 +3,8 @@
 require 'header.php';
 include "D:/programs/wamp64/www/Projet_integre1/entities/Produitheni.php";
 include "D:/programs/wamp64/www/Projet_integre1/core/ProduitService.php";
+include "D:/programs/wamp64/www/Projet_integre1/core/CategorieService.php";
+include "D:/programs/wamp64/www/Projet_integre1/entities/CategorieHeni.php";
 ?>
 
 
@@ -59,22 +61,37 @@ include "D:/programs/wamp64/www/Projet_integre1/core/ProduitService.php";
                         ?>
 
 
-                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" id="<?php echo $prod['prix']; ?>">
                             <div class="block-4 text-center border">
                                 <figure class="block-4-image">
                                     <a><div class="zoom"><?php
                                         $id =$prod['id'];
                                         $db = mysqli_connect("localhost","root","","projet"); //keep your db name
                                         $sql = "SELECT * FROM produit where id =$id ";
+                                        $sql1= "SELECT * FROM reduction where idProduit=$id";
+
                                         $sth = $db->query($sql);
+                                        $sth1 = $db->query($sql1);
                                         $result=mysqli_fetch_array($sth);
+                                        $result1=mysqli_fetch_array($sth1);
+
                                         echo '<img width="150" height="150" src="data:image/jpeg;base64,'.base64_encode( $prod['image'] ).'"/>';
                                         ?></a>
                                       </figure>
                                 <div class="block-4-text p-4">
                                     <h3><a href="plusdetails.php?id=<?php echo $prod['id'];?>"><?php echo $prod['nom']; ?> </a></h3>
                                     <p class="mb-0">click pour plus de details</p>
+                                    <?php foreach ($sth1 as $row) {}?>
+                                        <?php
+                                        if(mysqli_affected_rows($db)!=0)
+                                        {?>
+                                         <p class="text-primary font-weight-bold"><strike><?php echo $prod['prix']; ?>DT</strike><?php echo "  -".$row['tauxReduction']."%" ?></p>
+                                         <p class="text-primary font-weight-bold"><?php echo $prod['prix']-($prod['prix']*$row['tauxReduction'])/100; ?>DT</p>
+
+                                        <?php }else{?>
                                     <p class="text-primary font-weight-bold"><?php echo $prod['prix']; ?> DT</p>
+                                  <?php }
+                                   ?>
                                 </div>
                             </div>
                         </div>
@@ -108,47 +125,53 @@ include "D:/programs/wamp64/www/Projet_integre1/core/ProduitService.php";
                 <div class="border p-4 rounded mb-4">
                     <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
                     <ul class="list-unstyled mb-0">
-                        <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
-                        <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
-                        <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
+                        <li class="mb-1"><a href="shopheni.php" class="d-flex"><span>tous les categories </span> <span class="text-black ml-auto"></span></a></li>
+
+                        <?php
+                        $CategorieService1 = new CategorieService();
+                        $listecategorie=$CategorieService1->afficherCategorie();
+
+                        foreach ($listecategorie as  $row) {
+                        ?>
+                        <tr>
+                        <li class="mb-1"><a href="rechercherparcategorie.php?idcategorie=<?php echo $row['nom_categorie'];?>" class="d-flex"><span><?php echo $row['nom_categorie']; ?></span> <span class="text-black ml-auto"></span></a></li>
+                            <?php
+                            }
+                            ?>
                     </ul>
                 </div>
 
                 <div class="border p-4 rounded mb-4">
                     <div class="mb-4">
-                        <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                        <div id="slider-range" class="border-primary"></div>
-                        <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+                      <h3 class="mb-3 h6 text-uppercase text-black d-block">Filtrer par prix</h3>
+                    <input type="range" class="custom-range" id="customRange1" min="0" max="600" value="0"  onchange="showVal(this.value)" oninput="showVal(this.value)">
+                    <p style="display:inline">Supérieur à </p>
+                       <p style="display:inline" id="price">0</p>
+                       <p style="display:inline">DT</p>
                     </div>
 
-                    <div class="mb-4">
-                        <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-                        <label for="s_sm" class="d-flex">
-                            <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-                        </label>
-                        <label for="s_md" class="d-flex">
-                            <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-                        </label>
-                        <label for="s_lg" class="d-flex">
-                            <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-                        </label>
+
+
+
+                    <div class="border p-4 rounded mb-4">
+                        <h3 class="mb-3 h6 text-uppercase text-black d-block">Marque</h3>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-1"><a href="shopheni.php" class="d-flex"><span>tous les marques </span> <span class="text-black ml-auto"></span></a></li>
+
+                            <?php
+                            $listeproduits=new ProduitService();
+                            $listeproduits  =$listeproduits->affichermarques();
+
+                            foreach ($listeproduits as  $row) {
+                            ?>
+                            <tr>
+                                <li class="mb-1"><a href="rechercherparcategorie.php?idmarque=<?php echo $row['marque'];?>" class="d-flex"><span><?php echo $row['marque']; ?></span> <span class="text-black ml-auto"></span></a></li>
+                                <?php
+                                }
+                                ?>
+                        </ul>
                     </div>
 
-                    <div class="mb-4">
-                        <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-                        <a href="#" class="d-flex color-item align-items-center" >
-                            <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
-                        </a>
-                        <a href="#" class="d-flex color-item align-items-center" >
-                            <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
-                        </a>
-                        <a href="#" class="d-flex color-item align-items-center" >
-                            <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
-                        </a>
-                        <a href="#" class="d-flex color-item align-items-center" >
-                            <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
-                        </a>
-                    </div>
 
                 </div>
             </div>
@@ -204,5 +227,21 @@ include "D:/programs/wamp64/www/Projet_integre1/core/ProduitService.php";
 
     </div>
 </div>
+<script>
 
+function showVal(x)
+{
+document.getElementById("price").innerHTML=x;
+tab=document.getElementsByClassName("col-sm-6 col-lg-4 mb-4");
+for(i=0;i<tab.length;i++)
+{
+
+if( parseInt(tab[i].id,10)<x)
+tab[i].style.display="none";
+else
+tab[i].style.display="block";
+}
+}
+
+</script>
 <?php require 'footer.php';?>

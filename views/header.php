@@ -1,6 +1,6 @@
 <?php
   session_start();
-  
+
 include "D:/programs/wamp64/www/Projet_integre1/core/commandeC.php";
 $pa=new PanierC();
 $count=$pa->Count();
@@ -8,10 +8,12 @@ $count=$pa->Count();
 if (isset($_SESSION['pseudo']))
 {
 $display2="block";
+$msg="profilclient.php";
 $display="none";}
 else {
 $display2="none";
 $display="block";
+$msg="inscription.php";
 }
 ?>
 <!DOCTYPE html>
@@ -63,7 +65,7 @@ $display="block";
               <div class="site-top-icons">
                 <ul>
                     <li>
-                        <a href="NadaClient/inscription.php">
+                        <a href="NadaClient/<?php echo $msg; ?>">
                             <span class="icon icon-user-o" ></span>
                         </a>
                     </li>
@@ -90,8 +92,9 @@ $display="block";
           <li><a href="shopheni.php">Boutique</a></li>
           <li><a href="NadaClient/inscription.php" style="display : <?php echo $display; ?>">Crèer un compte</a></li>
           <li><a href="disconnect.php" style="display : <?php echo $display2; ?>">Deconnexion</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="about.html">A propos de nous</a></li>
+          <li><a href="firascontact/formulaire_reclamation.php">Reclamation</a></li>
+          <li><a href="../../Projet_integre1/gentelella-master/production/AdminNada/login.php">Espace Admin</a></li>
+
         <!--        <li class="has-children">
               <a href="index.php">Home</a>
           <ul class="dropdown">

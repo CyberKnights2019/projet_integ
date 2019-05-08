@@ -14,6 +14,9 @@ if ($_SESSION['qteCheck']!="false" && $_SESSION['qteCheck']!="true")
 {
   $_SESSION['qteCheck']="1";
 }
+
+
+
 }
 
 ?>
@@ -21,7 +24,23 @@ if ($_SESSION['qteCheck']!="false" && $_SESSION['qteCheck']!="true")
 <div class="site-section">
     <div class="container">
         <div class="row">
-            <?php foreach ($prod as $p ) {  ?>
+            <?php foreach ($prod as $p ) {
+
+              $db = mysqli_connect("localhost","root","","projet"); //keep your db name
+
+                        $sql1= "SELECT * FROM reduction where idProduit=$id";
+
+                        $sth1 = $db->query($sql1);
+
+                        $result1=mysqli_fetch_array($sth1);
+                         foreach ($sth1 as $row) {}
+
+                                         if(mysqli_affected_rows($db)!=0)
+                                         {
+                                         $p['prix']=$p['prix']-($p['prix']*$row['tauxReduction'])/100;
+
+                                          }
+?>
 
             <div class="col-md-6">
                 <a><div class="zoom"><?php

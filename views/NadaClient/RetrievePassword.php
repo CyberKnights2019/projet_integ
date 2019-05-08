@@ -63,7 +63,7 @@ echo "mail doesnt exist";
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Ben Moussa Optic</a>
+                <a href="../index.php" class="js-logo-clone">Ben Moussa Optic</a>
               </div>
             </div>
 

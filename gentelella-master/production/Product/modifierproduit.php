@@ -1,4 +1,6 @@
+<?php
 
+?>
 <!-- Edit -->
 <div class="modal fade" id="edit<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -34,6 +36,7 @@
                         </div>
                         <div style="height:10px;"></div>
 
+
                         <div class="row">
                             <div class="col-lg-2">
                                 <label style="position:relative; top:7px;">Categorie:</label>
@@ -43,6 +46,8 @@
                                 <div class="alert alert-danger" id="alertCategorie" style="display: :none">rempli le champs </div>
                             </div>
                         </div>
+
+
                         <div style="height:10px;"></div>
                         <div class="row">
                             <div class="col-lg-2">
@@ -77,7 +82,7 @@
                                 <label style="position:relative; top:7px;">Image:</label>
                             </div>
                             <div class="col-lg-10">
-                                <input type="file" name="image"  id="image"">
+                                <input type="file" accept="image/png, image/jpeg" name="imagel"  id="image"">
                             </div>
                         </div>
                 </div>

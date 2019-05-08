@@ -17,7 +17,7 @@ if(isset($_POST['edit'])) {
     $quantite = $crud->escape_string($_POST['quantite']);
     $prix = $crud->escape_string($_POST['prix']);
     $description = $crud->escape_string($_POST['description']);
-    $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+    $image = file_get_contents($_FILES['imagel']['tmp_name']);
 
     //update data
     $sql = "UPDATE produit SET nom = '$nom', marque = '$marque', id_categorie = '$categorie' , quantite='$quantite',prix='$prix', description ='$description',image ='$image' WHERE id = '$id'";

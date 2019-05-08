@@ -37,7 +37,7 @@ if (isset($_POST['pseudo']) and isset($_POST['motdepasse']))
 
 $cc=new loginC();
 $cc->loginn($cc->conn);
-header("location: ProfilClient.php");
+header("location:../index.php");
 
 
 		 }

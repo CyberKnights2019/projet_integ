@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" href="../../../views/glass.ico">
 
-    <title>Moussa optic!| </title>
+    <title>Moussa optic </title>
 
     <!-- Bootstrap -->
     <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,31 +31,31 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-		  
+
             <form action="FonctionLogin.php" method="POST">
-              <h1>Login Form</h1>
+              <h1>Login Admin</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Username"  name="pseudoA" />
-				<?php if(!empty($_GET['message'])) 
+				<?php if(!empty($_GET['message']))
 					  {
                           $message = $_GET['message'];
-                          echo '<p style="color:red;"> '.$message.'</p>'; //if we find a message in the URL, means there's an error 
+                          echo '<p style="color:red;"> '.$message.'</p>'; //if we find a message in the URL, means there's an error
                        }
-					  
+
 					   ?>
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="Password"  name="mdpA" />
-				<?php if(!empty($_GET['message2'])) 
+				<?php if(!empty($_GET['message2']))
 					  {
                           $message2 = $_GET['message2'];
-                          echo '<p style="color:red;"> '.$message2.'</p>'; //if we find a message in the URL, means there's an error 
+                          echo '<p style="color:red;"> '.$message2.'</p>'; //if we find a message in the URL, means there's an error
                        }
-					  
+
 					   ?>
               </div>
               <div>
-                <input class="btn btn-default submit" type="submit" value="login"></input>
+                <input class="btn btn-default submit" type="submit" value="Login"></input>
               </div>
 
 </form>
@@ -71,8 +72,8 @@
                   <p></p>
                 </div>
               </div>
-            
-			
+
+
           </section>
         </div>
 
@@ -85,12 +86,12 @@
               </div>
               <div>
                 <input type="text" class="form-control" placeholder="Usename" required="" name="pseudoA" />
-				 <?php if(!empty($_GET['message'])) 
+				 <?php if(!empty($_GET['message']))
 					  {
                           $message = $_GET['message'];
-                          echo '<p style="color:red;"> '.$message.'</p>'; //if we find a message in the URL, means there's an error 
+                          echo '<p style="color:red;"> '.$message.'</p>'; //if we find a message in the URL, means there's an error
                        }
-					  
+
 					   ?>
               </div>
               <div>
@@ -114,7 +115,7 @@
                 <br />
 
                 <div>
-                 <!-- <h1><i class="fa fa-paw"></i> </h1>-->
+                 <!-- <h1>  </h1>-->
                   <p></p>
                 </div>
               </div>

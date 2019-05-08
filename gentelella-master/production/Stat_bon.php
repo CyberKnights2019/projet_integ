@@ -1,3 +1,8 @@
+<?php session_start();
+if(!isset($_SESSION['pseudoA']))
+header('location: AdminNada/login.php');
+?>
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -47,11 +52,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                     <h2><?php echo $_SESSION['pseudoA'] ; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

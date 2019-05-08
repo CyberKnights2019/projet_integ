@@ -43,6 +43,20 @@ $environment = LOCAL;
 
                     <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/Product/formulaire_produit.php">Ajout d'un produit</a></li>
                     <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/Product/afficherproduit.php">Gestion des produits</a></li>
+                    <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/Product/statsheni.php">Statestiques categorie</a></li>
+                    <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/Product/statsmarque.php">Statestiques marque</a></li>
+
+
+                </ul>
+            </li>
+
+            <li>
+                <a><i class="fa fa-cart-arrow-down"></i> Categorie <span class="fa fa-chevron-down"></span></a>
+
+                <ul class="nav child_menu">
+
+                    <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/categorieheni/formulaire_categorie.php">Ajout d'une categorie</a></li>
+                    <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/categorieheni/affichercategorie.php">Gestion des categories</a></li>
 
 
                 </ul>
@@ -71,7 +85,21 @@ $environment = LOCAL;
       </li>
       <!-- FIN Menu Client Fidele-->
 
+            <!-- Menu Client reclamation-->
+            <li><a><i class="fa fa-comments"></i>Gestion des reclamations <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/firasreclamation/afficherreclamationadmin.php">Afficher reclamation</a></li>
+                    <li><a href="<?php echo $environment; ?>/Projet_integre1/gentelella-master/production/firasavis/statsfiras.php">Afficher avis</a></li>
 
+                </ul>
+            </li>
+            <!-- FIN Menu Client reclamation-->
+            <li><a><i class="fa fa-comments"></i>Espace Client <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="<?php echo $environment; ?>/Projet_integre1/views/shopheni.php ">Espace Client</a></li>
+
+                </ul>
+            </li>
         </ul>
     </div>
 

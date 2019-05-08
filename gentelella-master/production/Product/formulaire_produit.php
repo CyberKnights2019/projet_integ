@@ -1,6 +1,9 @@
 
 <?php
 session_start();
+include "D:/programs/wamp64/www/Projet_integre1/core/CategorieService.php";
+include "D:/programs/wamp64/www/Projet_integre1/entities/CategorieHeni.php";
+
 if(isset($_GET['id']))
 {
     $pC=$_GET['id'];
@@ -60,7 +63,7 @@ else {$pC =-1;}
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                      <!--  <h2><?php echo $_SESSION['pseudoA'] ; ?></h2>-->
+                        <!--  <h2><?php echo $_SESSION['pseudoA'] ; ?></h2>-->
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -99,7 +102,7 @@ else {$pC =-1;}
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                         <!--      <img src="images/img.jpg" alt=""><?php echo $_SESSION['pseudoA'] ; ?></img>          -->                      <span class=" fa fa-angle-down"></span>
+                                <!--      <img src="images/img.jpg" alt=""><?php echo $_SESSION['pseudoA'] ; ?></img>          -->                      <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="javascript:;"> Profile</a></li>
@@ -186,106 +189,133 @@ else {$pC =-1;}
 
 
         <div class="container">
-        <div class="col-sm-8 col-sm-offset-0">
+            <div class="col-sm-8 col-sm-offset-0">
 
-            <br />
-            <br />
-            <br />
-<!-- add -->
-            <div class="right_col" role="main">
-                <div class="">
-                    <div class="page-title">
-                        <div class="title_left">
-                            <h3>Ajout d'un produit</h3>
-                        </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <form method="POST" action="ajoutproduit.php" enctype="multipart/form-data">
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label style="position:relative; top:7px;">Nom:</label>
+                <br />
+                <br />
+                <br />
+                <!-- add -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Ajout d'un produit</h3>
                             </div>
-                            <div class="col-lg-16">
-                                <input type="text" name="nom" autofocus onblur="verifierNom()"  id="Nom" class="form-control">
-                                <div class="alert alert-danger" id="alertNom" style="display: none"> rempli le champs
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <form method="POST" action="ajoutproduit.php" enctype="multipart/form-data">
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <label style="position:relative; top:7px;">Nom:</label>
+                                            </div>
+                                            <div class="col-lg-16">
+                                                <input type="text" name="nom" autofocus onblur="verifierNom()"  id="Nom" class="form-control">
+                                                <div class="alert alert-danger" id="alertNom" style="display: none"> rempli le champs
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="height:10px;"></div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <label style="position:relative; top:7px;">Marque:</label>
+                                            </div>
+                                            <div class="col-lg-16">
+                                                <input type="text" autofocus onblur="verifierMarque()" id="Marque" name="marque" class="form-control" >
+                                                <div class="alert alert-danger" id="alertMarque" style ="display:none">rempli le champs </div>
+                                            </div>
+                                        </div>
+                                        <div style="height:10px;"></div>
+                                        <div class="col-lg-2">
+                                            <label style="position:relative; top:7px;">categorie:</label>
+                                        </div>
+                                        <td><select id="heard" class="form-control" name="categorie" >
+
+                                                <?php
+                                                $categorieservice1 = new CategorieService();
+                                                $listecategorie=     $categorieservice1->afficherCategorie();
+
+
+                                                foreach($listecategorie as $row){
+
+
+                                                    ?>
+
+                                                    <option  value="<?php echo $row['nom_categorie']; ?>"><?php echo $row['nom_categorie']; ?></option>
+                                                <?php } ?>
+                                            </select></td>
+
+
+
+
+                                        <!--        <div class="row">
+                                                    <div class="col-lg-2">
+                                                        <label style="position:relative; top:7px;">Categorie:</label>
+                                                    </div>
+                                                    <div class="col-lg-10">
+                                                        <input type="text" name="categorie" autofocus onblur="verifierCategorie() "id="Categorie" class="form-control" >
+
+                                                    </div>
+                                                </div> -->
+                                        <div style="height:10px;"></div>
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <label style="position:relative; top:7px;">Quantite:</label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input type="number" name="quantite" class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div style="height:10px;"></div>
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <label style="position:relative; top:7px;">Prix:</label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input type="number" name="prix" class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div style="height:10px;"></div>
+
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <label style="position:relative; top:7px;">Description:</label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input type="text" name="description" class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div style="height:10px;"></div>
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <label style="position:relative; top:7px;">Image:</label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input type="file" accept="image/png, image/jpeg" name="imgproduit"  id="image">
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">annuler</button>
+                                <button type="submit" id="btn" name="add" class="btn btn-primary">ajouter</button>
+                            </div>
+                            </form>
                         </div>
-                        <div style="height:10px;"></div>
-
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label style="position:relative; top:7px;">Marque:</label>
-                            </div>
-                            <div class="col-lg-16">
-                                <input type="text" autofocus onblur="verifierMarque()" id="Marque" name="marque" class="form-control" >
-                                <div class="alert alert-danger" id="alertMarque" style ="display:none">rempli le champs </div>
-                            </div>
-                        </div>
-                        <div style="height:10px;"></div>
-
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label style="position:relative; top:7px;">Categorie:</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text" name="categorie" autofocus onblur="verifierCategorie() "id="Categorie" class="form-control" >
-
-                            </div>
-                        </div>
-                        <div style="height:10px;"></div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label style="position:relative; top:7px;">Quantite:</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="number" name="quantite" class="form-control" >
-                            </div>
-                        </div>
-                        <div style="height:10px;"></div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label style="position:relative; top:7px;">Prix:</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="number" name="prix" class="form-control" >
-                            </div>
-                        </div>
-                        <div style="height:10px;"></div>
-
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label style="position:relative; top:7px;">Description:</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text" name="description" class="form-control" >
-                            </div>
-                        </div>
-                        <div style="height:10px;"></div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label style="position:relative; top:7px;">Image:</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="file" accept="image/png, image/jpeg" name="imgproduit"  id="image"">
-                            </div>
-                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">annuler</button>
-                <button type="submit" id="btn" name="add" class="btn btn-primary">ajouter</button>
-            </div>
-            </form>
-        </div>
+
+
+
+          </div>
+      </div>
     </div>
-</div>
-        </div>
             <!-- jQuery -->
             <script src="../../vendors/jquery/dist/jquery.min.js"></script>
             <!-- Bootstrap -->
@@ -312,55 +342,55 @@ else {$pC =-1;}
 
             <!-- Custom Theme Scripts -->
             <script src="../../build/js/custom.min.js"></script>
-        <script>
-    function verifierNom()
-    {
-        var nom = document.getElementById("Nom").value;
+            <script>
+                function verifierNom()
+                {
+                    var nom = document.getElementById("Nom").value;
 
-        if(nom == "")
-        {
-            document.getElementById("alertNom").style.display = "block";
-            document.getElementById("btn").disabled = true;
-        }
-        else
-        {
-            document.getElementById("alertNom").style.display = "none";
-            document.getElementById("btn").disabled = false;
-        }
-    }
-    function verifierMarque()
-    {
-        var marque = document.getElementById("Marque").value;
+                    if(nom == "")
+                    {
+                        document.getElementById("alertNom").style.display = "block";
+                        document.getElementById("btn").disabled = true;
+                    }
+                    else
+                    {
+                        document.getElementById("alertNom").style.display = "none";
+                        document.getElementById("btn").disabled = false;
+                    }
+                }
+                function verifierMarque()
+                {
+                    var marque = document.getElementById("Marque").value;
 
-        if(marque == "")
-        {
-            document.getElementById("alertMarque").style.display = "block";
-            document.getElementById("btn").disabled = true;
-        }
-        else
-        {
-            document.getElementById("alertMarque").style.display = "none";
-            document.getElementById("btn").disabled = false;
-        }
-    }
-    function verifierCategorie()
-    {
-        var categorie = document.getElementById("Categorie").value;
+                    if(marque == "")
+                    {
+                        document.getElementById("alertMarque").style.display = "block";
+                        document.getElementById("btn").disabled = true;
+                    }
+                    else
+                    {
+                        document.getElementById("alertMarque").style.display = "none";
+                        document.getElementById("btn").disabled = false;
+                    }
+                }
+                function verifierCategorie()
+                {
+                    var categorie = document.getElementById("Categorie").value;
 
-        if(categorie == "")
-        {
-            document.getElementById("alertCategorie").style.display = "block";
-            document.getElementById("btn").disabled = true;
-        }
-        else
-        {
-            document.getElementById("alertCategorie").style.display = "none";
-            document.getElementById("btn").disabled = false;
-        }
-    }
+                    if(categorie == "")
+                    {
+                        document.getElementById("alertCategorie").style.display = "block";
+                        document.getElementById("btn").disabled = true;
+                    }
+                    else
+                    {
+                        document.getElementById("alertCategorie").style.display = "none";
+                        document.getElementById("btn").disabled = false;
+                    }
+                }
 
 
-</script>
+            </script>
 </body>
 
 <!-- /.modal -->

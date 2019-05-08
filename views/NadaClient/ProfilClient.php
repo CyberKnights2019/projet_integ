@@ -36,7 +36,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.php" class="js-logo-clone">Ben Moussa Optic</a>
+                <a href="../index.php" class="js-logo-clone">Ben Moussa Optic</a>
               </div>
             </div>
 
@@ -47,14 +47,16 @@
 
 <!--CLIENT-->
                   <li>
-                    <a href="inscription.php">
+                    <a href="account.php">
                       <span class="icon icon-person" ></span>
                     </a>
                   </li>
 
 <!--CLIENT-->
 
-
+<li>
+                  <H3><?php echo $_SESSION['pseudo'] ; ?></H3>
+                  </li>
 
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
@@ -82,7 +84,7 @@
 
 	 <?php
      include 'D:/programs/wamp64/www/Projet_integre1/core/clientC.php';
-      
+
 
 $cc=new clientC();
 
@@ -114,14 +116,17 @@ $cc=new clientC();
 						   </table>
                         <center>
 						</br>
-						<button type="submit" name="modify"  class="button">Update Informations</button>
-                        <!-- <button type="submit" name="deconnect"  class="button">Sign Out</button> -->
+						<button type="submit" name="modify" id="modify" class="button">Update Informations</button>
 
                         </center>
 						<?php
 						}
 						?>
                      </form>
+
+
+           <a href="logoutclient.php" class="button">Sign Out</button>
+
 						</div>	</div>
 				   </body>
 				</html>

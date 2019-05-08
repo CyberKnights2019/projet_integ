@@ -1,3 +1,8 @@
+<?php
+      session_start();
+      if(!isset($_SESSION['pseudoA']))
+      header('location: login.php');
+?>
  <table class="table">
                       <thead>
                         <tr>
@@ -6,7 +11,7 @@
                        </tr>
                       </thead>
 					  <?PHP
-include "D:/programs/wamp64/www/Projet_integre1/core/clientC.php";
+include "D:/programs/wamp64/www/Projet_integre1//core/clientC.php";
 $client1C=new clientC();
 $listeClients=$client1C->recupererClientLogin($_POST['pseudo'],$client1C->conn);
 ?>

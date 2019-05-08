@@ -7,7 +7,7 @@ $cc=new clientC();
 session_start();
 
 
-	if(isset($_SESSION['pseudo']) && isset($_SESSION['motdepasse']))
+	if(isset($_SESSION['email']) || isset($_SESSION['motdepasse']))
 	{
 if(isset($_POST['modify']) )
 
@@ -24,6 +24,7 @@ else
 		{
 			echo "error modifying";
 
+			header('location:ProfilClient.php');
 		}
 	}
 
@@ -31,9 +32,10 @@ else
 	{
 		"error2";
 
+		header('location:ProfilClient.php');
 	}
 
-
+header('location:ProfilClient.php');
 
 
 

@@ -1,4 +1,5 @@
 <?php
+
 include "D:/programs/wamp64/www/Projet_integre1/entities/reduction.php";
 include "D:/programs/wamp64/www/Projet_integre1/core/reductionF.php";
 
@@ -20,6 +21,8 @@ if(isset($_POST['idProduit']) and isset($_POST['tauxReduction']) and isset($_POS
 }
 
 require ('header.php');
+
+
 ?>
         <!-- page content -->
         <div class="right_col" role="main">

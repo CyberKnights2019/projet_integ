@@ -44,6 +44,35 @@ class ProduitService
         }
 
     }
+    public function modifierProduit($produit,$id)
+    {
+        $sql = "update  produit set nom=:nom,marque=:marque,id_categorie=:idcat ,quantite=:quantite,prix=:prix,description=:description,image=:photo where id=:id ";
+        $db = config::getConnexion();
+        try {
+            $req = $db->prepare($sql);
+
+            $nomm=$produit->getNom();
+            $marquee=   $produit->getMarque();
+            $categ=      $produit->getIdCategorie();
+            $quantit=     $produit->getQuantite();
+            $price=  $produit->getPrix();
+            $descriptionn=     $produit->getDescription();
+            $image=    $produit->getPhoto();
+            $req->bindValue(':nom',$nomm);
+            $req->bindValue(':id',$id);
+            $req->bindValue(':marque',$marquee);
+            $req->bindValue(':idcat',$categ);
+            $req->bindValue(':quantite', $quantit);
+            $req->bindValue(':prix',  $price);
+            $req->bindValue(':description', $descriptionn);
+            $req->bindValue(':photo', $image);
+            $req->execute();
+
+        } catch (Exception $e) {
+            echo 'Erreur: ' . $e->getMessage();
+        }
+
+    }
     function afficherProduit(){
 
         $sql="SELECT * From produit";
@@ -86,4 +115,55 @@ class ProduitService
         }
 
     }
+    function afficherparcategorie($id){
+        //$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+        $db = config::getConnexion();
+        try{
+            $req=$db->prepare("SElECT * From produit where id_categorie =:id");
+            $req->bindValue(':id',$id);
+            $req->execute();
+            $liste=$req->fetchAll();
+
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+
+    }
+    function afficherparmarque($id){
+        //$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+        $db = config::getConnexion();
+        try{
+            $req=$db->prepare("SElECT * From produit where marque =:id");
+            $req->bindValue(':id',$id);
+            $req->execute();
+            $liste=$req->fetchAll();
+
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+
+    }
+
+
+    function affichermarques(){
+        //$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+        $db = config::getConnexion();
+        try{
+            $req=$db->prepare("SElECT distinct(marque) From produit ");
+
+            $req->execute();
+            $liste=$req->fetchAll();
+
+            return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+
+    }
+
 }

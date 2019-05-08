@@ -1,4 +1,6 @@
 <?php
+
+
 include "D:/programs/wamp64/www/Projet_integre1/entities/clientfideles.php";
 include "D:/programs/wamp64/www/Projet_integre1/core/clientfidelesF.php";
 $clientfidelesF= new clientfidelesF();

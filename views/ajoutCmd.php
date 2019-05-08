@@ -32,7 +32,7 @@ while($row = $req->fetch())
 
 }
 
-	$prix_t= $_SESSION['total'];
+	$prix_t= $_SESSION['totalF'];
 	$Cmd1=new Commande($_SESSION['pseudo'],6,$prix_t,"processing",$liv,$pay,$zone,$adresse);
 	$Cmd1C=new CommandeC();
 	$Cmd1C->ajouterCommande($Cmd1);
@@ -42,7 +42,7 @@ while($row = $req->fetch())
 
 		$subject ="Moussa Optic: Commande";
 		$message="Votre commande est en cours de traitement, Merci";
-		$headers ="From: Moussa Optic";
+		$headers ="From: opticbenmoussa@gmail.com";
 
 		mail($to[0], $subject, $message,$headers);
 
